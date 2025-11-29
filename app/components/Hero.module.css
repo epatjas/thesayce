@@ -1,0 +1,33 @@
+.hero {
+  padding: 120px var(--content-padding) var(--section-padding);
+}
+
+.content {
+  max-width: var(--max-width);
+  margin: 0 auto 3rem;
+}
+
+.headline {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  max-width: 14em;
+  margin-bottom: 1.5rem;
+}
+
+.subline {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--color-text-secondary);
+}
+
+.imageWrapper {
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}

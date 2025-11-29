@@ -1,0 +1,61 @@
+{
+  "header": {
+    "name": "Lili Sayce",
+    "nav": [
+      { "label": "About", "href": "#problem" },
+      { "label": "Clients", "href": "#clients" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "cta": {
+      "label": "Let's talk",
+      "href": "#contact"
+    }
+  },
+  "hero": {
+    "headline": "Most companies are really good at killing their own ideas.",
+    "subline": "Not on purpose. They're... just organizations.",
+    "image": "/images/hero.jpg"
+  },
+  "problem": {
+    "text": "Every process, every approval chain, every meeting structure exists to keep things stable.",
+    "pullquote": "Which makes sense. You don't want chaos.",
+    "image": "/images/problem.jpg"
+  },
+  "question": {
+    "text": "But then the market shifts. Customers want something new. The company needs to adapt. And the immune system kicks in.",
+    "pullquote": "Politics. Roadmaps. Egos.",
+    "image": "/images/question.jpg"
+  },
+  "whatIDo": {
+    "text": "I create protected spaces where good ideas can survive long enough to prove themselves.",
+    "pullquote": "I don't innovate. I create the conditions for innovation.",
+    "image": "/images/whatido.jpg"
+  },
+  "proof": {
+    "show": true,
+    "items": [
+      {
+        "client": "Gerresheimer",
+        "title": "Killed a 2M project before it wasted 18 months",
+        "image": "/images/proof-1.jpg"
+      },
+      {
+        "client": "Invacare Europe",
+        "title": "Got a stuck product to market 8 months faster",
+        "image": "/images/proof-2.jpg"
+      },
+      {
+        "client": "Fortum",
+        "title": "Turned a customer complaint into a new revenue stream",
+        "image": "/images/proof-3.jpg"
+      }
+    ]
+  },
+  "contact": {
+    "headline": "want to talk?",
+    "text": "I create protected spaces where good ideas can survive long enough to prove themselves.",
+    "email": "lili.sayce@gmail.com",
+    "linkedin": "https://linkedin.com/in/lilisayce",
+    "image": "/images/lili.jpg"
+  }
+}
