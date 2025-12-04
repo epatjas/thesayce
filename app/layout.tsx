@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Serif, Inter } from "next/font/google";
 import "./globals.css";
+import PasswordGate from "./components/PasswordGate";
 
 const ibmPlexSerif = IBM_Plex_Serif({
   subsets: ["latin"],
@@ -28,7 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${ibmPlexSerif.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        <PasswordGate>{children}</PasswordGate>
+      </body>
     </html>
   );
 }
