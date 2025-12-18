@@ -26,8 +26,8 @@
     "image": "/images/hero.jpg"
   },
   "problem": {
-    "text": "Every process, every approval chain, every meeting structure exists to keep things stable.",
-    "pullquote": "Which makes sense. You don't want chaos.",
+    "text": "Which makes sense. You don’t want chaos.\n\nThe challenge is that anything uncertain, unfinished, or still being explored quickly starts to feel risky.\n\nNot because it’s wrong,\nbut because it can’t yet be made clear, predictable, or safe enough for a decision.",
+    "pullquote": "If everything has to be clear upfront, nothing truly new will survive the process.",
     "image": "/images/problem.jpg"
   },
   "question": {
