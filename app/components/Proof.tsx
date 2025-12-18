@@ -16,9 +16,9 @@ export default function Proof({ show, items }: ProofProps) {
   if (!show) return null;
 
   return (
-    <section id="clients" className={styles.section}>
+    <section id="experience" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>Client cases</h2>
+        <h2 className={styles.heading}>Experience</h2>
         <div className={styles.grid}>
           {items.map((item, index) => (
             <article key={index} className={styles.card}>

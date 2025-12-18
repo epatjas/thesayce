@@ -20,7 +20,7 @@
 
 .textColumns {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1fr;
   gap: clamp(40px, 8vw, 120px);
   align-items: start;
 }
@@ -29,7 +29,7 @@
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   line-height: 1.7;
   color: var(--color-text-secondary);
-  max-width: 320px;
+  max-width: 480px;
 }
 
 .pullquote {

@@ -19,6 +19,7 @@
 .subline {
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   color: var(--color-text-secondary);
+  max-width: 780px;
 }
 
 .imageWrapper {

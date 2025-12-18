@@ -34,7 +34,7 @@
 
 .headline {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-style: italic;
   font-weight: 400;
   margin-bottom: -0.5rem;
