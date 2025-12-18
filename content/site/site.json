@@ -2,9 +2,18 @@
   "header": {
     "name": "Lili Sayce",
     "nav": [
-      { "label": "About", "href": "#problem" },
-      { "label": "Clients", "href": "#clients" },
-      { "label": "Contact", "href": "#contact" }
+      {
+        "label": "About",
+        "href": "#problem"
+      },
+      {
+        "label": "Clients",
+        "href": "#clients"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
     ],
     "cta": {
       "label": "Let's talk",
@@ -12,8 +21,8 @@
     }
   },
   "hero": {
-    "headline": "Most LILIIIIII are really good at killing their own ideas.",
-    "subline": "Not on purpose. They're... just organizations.",
+    "headline": "Building innovation systems in global companies.",
+    "subline": "From design to innovation management. From creative agencies where imagination leads to corporations where compliance rules. I bridge the gap between creative possibility and corporate reality. Making innovation work where risk tolerance is low and stakes are high.",
     "image": "/images/hero.jpg"
   },
   "problem": {
