@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
@@ -8,7 +10,58 @@ import Contact from './components/Contact';
 import content from '../content/site/site.json';
 import styles from './page.module.css';
 
+interface CaseStudyData {
+  slug: string;
+  published: boolean;
+  title: string;
+  context?: {
+    client?: string;
+  };
+  preview?: {
+    image?: string;
+    title?: string;
+  };
+}
+
+function getCaseStudies(): CaseStudyData[] {
+  const caseStudiesDir = path.join(process.cwd(), 'content/case-studies');
+
+  if (!fs.existsSync(caseStudiesDir)) {
+    return [];
+  }
+
+  const files = fs.readdirSync(caseStudiesDir).filter(f => f.endsWith('.json'));
+
+  return files.map(file => {
+    const fileContent = fs.readFileSync(path.join(caseStudiesDir, file), 'utf8');
+    return JSON.parse(fileContent) as CaseStudyData;
+  });
+}
+
 export default function Home() {
+  // Get published case studies
+  const caseStudies = getCaseStudies().filter(cs => cs.published);
+
+  // Merge case studies with existing proof items
+  // Case studies with preview data appear first, then fallback items
+  const proofItems = [
+    ...caseStudies.map(cs => ({
+      client: cs.context?.client || '',
+      title: cs.preview?.title || cs.title,
+      image: cs.preview?.image || '/images/proof-1.jpg',
+      slug: cs.slug,
+    })),
+    ...content.proof.items
+      .filter(item => {
+        // Keep existing items that don't have a matching case study
+        return !caseStudies.some(cs => cs.context?.client === item.client);
+      })
+      .map(item => ({
+        ...item,
+        slug: (item as { slug?: string }).slug, // Preserve slug from site.json if set
+      })),
+  ];
+
   return (
     <>
       <Header
@@ -39,7 +92,7 @@ export default function Home() {
         />
         <Proof
           show={content.proof.show}
-          items={content.proof.items}
+          items={proofItems}
         />
         <Contact
           headline={content.contact.headline}

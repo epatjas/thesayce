@@ -1,0 +1,362 @@
+{
+  "slug": "gerresheimer-innovation",
+  "published": true,
+  "title": "Building Innovation Infrastructure from Zero",
+  "subtitle": "How I created Gerresheimer's first systematic approach to innovation in a 150-year-old medical packaging company",
+  "heroImage": "/images/proof-1.jpg",
+  "context": {
+    "client": "Gerresheimer",
+    "clientFull": "Gerresheimer AG (€2B+ revenue, 10,000+ employees)",
+    "year": "July 2023 – September 2025",
+    "role": "Senior Innovation Manager",
+    "industry": "Medical & pharmaceutical packaging (highly regulated)"
+  },
+  "sections": [
+    {
+      "heading": "The Challenge",
+      "content": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Gerresheimer had no formal innovation function. In a 150-year-old company operating in heavily regulated medical packaging, \"innovation\" meant incremental product improvements driven by customer requests—not systematic exploration of new opportunities."
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "The real constraints weren't technical. They were cultural and structural:"
+              }
+            ]
+          },
+          {
+            "type": "ul",
+            "children": [
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Every change requires compliance validation (FDA, EMA regulations)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Engineers optimized for risk avoidance, not experimentation"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "No budget or mandate for exploratory work"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Innovation was everyone's side project and no one's priority"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "heading": "What I Did",
+      "content": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Rather than proposing a grand innovation strategy, I focused on creating the conditions where innovation could actually happen."
+              }
+            ]
+          }
+        ]
+      },
+      "images": {
+        "layout": "full",
+        "image1": "/images/proof-1.jpg"
+      }
+    },
+    {
+      "heading": "Create permission to experiment",
+      "content": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Describe how you got initial buy-in. What was the first small win that proved the concept? Who did you need to convince?"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "heading": "First hackathon (end of 2023)",
+      "content": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "I organized Gerresheimer's first-ever internal hackathon. This wasn't about the output—it was about proving that structured unstructured time could exist in our culture."
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "[PLACEHOLDER: Add specifics—how many participants? What were the themes? What was the executive reaction? Did any projects continue afterward?]"
+              }
+            ]
+          }
+        ]
+      },
+      "images": {
+        "layout": "three",
+        "image1": "/images/proof-1.jpg",
+        "image2": "/images/proof-2.jpg",
+        "image3": "/images/proof-3.jpg"
+      }
+    },
+    {
+      "heading": "Build the system",
+      "content": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Moved from running events to designing infrastructure:"
+              }
+            ]
+          },
+          {
+            "type": "ul",
+            "children": [
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Innovation KPIs and tracking frameworks"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Cross-functional collaboration processes"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Internal scouting for ideas + external technology monitoring"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Coaching teams on innovation methods and stakeholder engagement"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "heading": "The insight",
+      "content": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "The work isn't innovation itself—it's creating the conditions where innovation becomes possible. That means:"
+              }
+            ]
+          },
+          {
+            "type": "ul",
+            "children": [
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Building trust with compliance teams, not working around them"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Designing processes that feel safe for risk-averse engineers"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Making innovation visible and measurable for executives"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "lic",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Connecting disconnected teams across a global organization"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "quote": {
+        "text": "\"Innovation in a regulated industry isn't about moving fast and breaking things. It's about creating safe spaces for experimentation within a system designed to prevent change.\""
+      }
+    },
+    {
+      "heading": "What I'd do differently",
+      "content": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "I treated compliance as an obstacle to work around instead of a partner to bring in early. Meant I designed two programs that got killed in review because they didn't account for documentation requirements. Expensive lesson."
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Now I schedule a coffee chat with the compliance team—not to ask permission, but to understand their constraints before I'm too invested in a specific approach."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "preview": {
+    "image": "/images/proof-1.jpg",
+    "title": "Built innovation infrastructure from zero in a 150-year-old company"
+  }
+}
