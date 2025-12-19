@@ -47,6 +47,7 @@
   max-width: var(--max-width);
   margin: 0 auto 3rem;
   padding: 0 var(--content-padding);
+  position: relative;
 }
 
 .heroImage {
@@ -56,6 +57,18 @@
   object-fit: cover;
   background-color: #e0e0e0;
   border-radius: 0.75rem;
+}
+
+.heroLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 200px;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Context Box */
@@ -182,24 +195,10 @@
   background-color: #e0e0e0;
 }
 
-/* Image wrapper for logo overlay */
+/* Image wrapper */
 .imageWrapper {
   position: relative;
   display: block;
-}
-
-.imageLogo {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  max-width: 120px;
-  max-height: 48px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  aspect-ratio: unset;
-  border-radius: 0;
-  background-color: transparent;
 }
 
 /* Responsive */

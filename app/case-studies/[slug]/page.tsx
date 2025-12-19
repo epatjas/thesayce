@@ -5,12 +5,16 @@ import Header from '../../components/Header';
 import CaseStudy from '../../components/CaseStudy';
 import siteContent from '../../../content/site/site.json';
 
+// Revalidate pages every 60 seconds to pick up content/image changes
+export const revalidate = 60;
+
 interface CaseStudyData {
   slug: string;
   published: boolean;
   title: string;
   subtitle?: string;
   heroImage?: string;
+  heroLogo?: string;
   context?: {
     client?: string;
     clientFull?: string;
@@ -29,7 +33,6 @@ interface CaseStudyData {
       image1?: string;
       image2?: string;
       image3?: string;
-      logo?: string;
     };
   }>;
   preview?: {
@@ -97,6 +100,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           title={caseStudy.title}
           subtitle={caseStudy.subtitle}
           heroImage={caseStudy.heroImage}
+          heroLogo={caseStudy.heroLogo}
           context={caseStudy.context}
           sections={caseStudy.sections as CaseStudy['sections']}
         />

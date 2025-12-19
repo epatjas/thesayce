@@ -76,6 +76,12 @@ export default defineConfig({
             label: "Hero Image",
             description: "Main image at the top of the case study",
           },
+          {
+            type: "image",
+            name: "heroLogo",
+            label: "Hero Logo Overlay (optional)",
+            description: "Client logo (SVG) to display on the hero image",
+          },
           // Context box
           {
             type: "object",
@@ -179,12 +185,6 @@ export default defineConfig({
                     type: "image",
                     name: "image3",
                     label: "Image 3 (for three layout)",
-                  },
-                  {
-                    type: "image",
-                    name: "logo",
-                    label: "Logo Overlay (optional)",
-                    description: "SVG or image logo to display on the bottom-left of images",
                   },
                 ],
               },

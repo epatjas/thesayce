@@ -14,7 +14,6 @@ interface CaseStudySection {
     image1?: string;
     image2?: string;
     image3?: string;
-    logo?: string;
   };
 }
 
@@ -22,6 +21,7 @@ interface CaseStudyProps {
   title: string;
   subtitle?: string;
   heroImage?: string;
+  heroLogo?: string;
   context?: {
     client?: string;
     clientFull?: string;
@@ -36,6 +36,7 @@ export default function CaseStudy({
   title,
   subtitle,
   heroImage,
+  heroLogo,
   context,
   sections,
 }: CaseStudyProps) {
@@ -59,6 +60,13 @@ export default function CaseStudy({
             className={styles.heroImage}
             priority
           />
+          {heroLogo && (
+            <img
+              src={heroLogo}
+              alt=""
+              className={styles.heroLogo}
+            />
+          )}
         </div>
       )}
 
@@ -123,13 +131,6 @@ export default function CaseStudy({
                         width={400}
                         height={400}
                       />
-                      {section.images.logo && (
-                        <img
-                          src={section.images.logo}
-                          alt=""
-                          className={styles.imageLogo}
-                        />
-                      )}
                     </div>
                     {section.images.image2 && (
                       <div className={styles.imageWrapper}>
@@ -161,13 +162,6 @@ export default function CaseStudy({
                         width={1200}
                         height={675}
                       />
-                      {section.images.logo && (
-                        <img
-                          src={section.images.logo}
-                          alt=""
-                          className={styles.imageLogo}
-                        />
-                      )}
                     </div>
                   </div>
                 )}
