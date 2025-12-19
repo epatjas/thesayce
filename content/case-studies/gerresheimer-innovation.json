@@ -14,7 +14,10 @@
   "sections": [
     {
       "heading": "The Challenge",
-      "content": "\\[object Object]\n"
+      "content": "\\[object Object]\n",
+      "images": {
+        "layout": "three"
+      }
     },
     {
       "heading": "What I Did",
@@ -47,6 +50,11 @@
       "content": "\\[object Object]\n",
       "quote": {
         "text": "\"Innovation in a regulated industry isn't about moving fast and breaking things. It's about creating safe spaces for experimentation within a system designed to prevent change.\""
+      },
+      "images": {
+        "layout": "full",
+        "image1": "/images/adam-kring-EFRD6Cr7skc-unsplash.jpg",
+        "logo": "/images/ger-logo-D5rYt99Q.svg"
       }
     },
     {
