@@ -5,7 +5,7 @@ import styles from './CaseStudy.module.css';
 
 interface CaseStudySection {
   heading?: string;
-  content?: TinaMarkdownContent;
+  content?: TinaMarkdownContent | string;
   quote?: {
     text?: string;
   };
@@ -15,6 +15,16 @@ interface CaseStudySection {
     image2?: string;
     image3?: string;
   };
+}
+
+// Helper to check if content is TinaMarkdown AST or plain string
+function isRichTextContent(content: unknown): content is TinaMarkdownContent {
+  return (
+    content !== null &&
+    typeof content === 'object' &&
+    'type' in (content as object) &&
+    'children' in (content as object)
+  );
 }
 
 interface CaseStudyProps {
@@ -108,7 +118,14 @@ export default function CaseStudy({
               <div className={styles.sectionBody}>
                 {section.content && (
                   <div className={styles.sectionContent}>
-                    <TinaMarkdown content={section.content} />
+                    {isRichTextContent(section.content) ? (
+                      <TinaMarkdown content={section.content} />
+                    ) : typeof section.content === 'string' && section.content.trim() && !section.content.includes('[object Object]') ? (
+                      // Render plain text as paragraphs
+                      section.content.split('\n\n').map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))
+                    ) : null}
                   </div>
                 )}
 
