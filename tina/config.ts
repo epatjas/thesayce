@@ -18,7 +18,6 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "public",
-    checkGraphQLSchema: false,
   },
   media: {
     tina: {
