@@ -117,6 +117,25 @@
   gap: 3rem;
 }
 
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sectionTag {
+  display: inline-block;
+  background-color: #F0EEE6;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  width: fit-content;
+}
+
 .sectionHeading {
   font-family: var(--font-serif), Georgia, serif;
   font-size: clamp(1.5rem, 3vw, 2rem);
