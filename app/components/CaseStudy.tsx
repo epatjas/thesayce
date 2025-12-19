@@ -172,11 +172,11 @@ export default function CaseStudy({
 
         {sections?.map((section, index) => (
           <div key={index} className={styles.sectionWrapper}>
+            {section.tag && (
+              <span className={styles.sectionTag}>{section.tag}</span>
+            )}
             <section className={styles.section}>
               <div className={styles.sectionHeader}>
-                {section.tag && (
-                  <span className={styles.sectionTag}>{section.tag}</span>
-                )}
                 <h2 className={styles.sectionHeading}>{section.heading}</h2>
               </div>
 

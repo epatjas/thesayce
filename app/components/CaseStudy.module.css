@@ -134,6 +134,7 @@
   letter-spacing: 0.05em;
   color: var(--color-text-secondary);
   width: fit-content;
+  margin-bottom: 1rem;
 }
 
 .sectionHeading {
