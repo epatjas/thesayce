@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TinaMarkdown, TinaMarkdownContent } from 'tinacms/dist/rich-text';
@@ -25,6 +26,64 @@ function isRichTextContent(content: unknown): content is TinaMarkdownContent {
     'type' in (content as object) &&
     'children' in (content as object)
   );
+}
+
+// Simple markdown parser for plain text strings
+function renderMarkdownString(text: string) {
+  const blocks: React.ReactNode[] = [];
+  const lines = text.split('\n');
+  let currentList: string[] = [];
+  let blockIndex = 0;
+
+  const flushList = () => {
+    if (currentList.length > 0) {
+      blocks.push(
+        <ul key={`list-${blockIndex++}`}>
+          {currentList.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+      );
+      currentList = [];
+    }
+  };
+
+  let paragraph = '';
+  for (const line of lines) {
+    const trimmed = line.trim();
+
+    // Check for bullet points
+    if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
+      // Flush any pending paragraph
+      if (paragraph.trim()) {
+        flushList();
+        blocks.push(<p key={`p-${blockIndex++}`}>{paragraph.trim()}</p>);
+        paragraph = '';
+      }
+      currentList.push(trimmed.slice(2));
+    } else if (trimmed === '') {
+      // Empty line - flush paragraph
+      if (paragraph.trim()) {
+        flushList();
+        blocks.push(<p key={`p-${blockIndex++}`}>{paragraph.trim()}</p>);
+        paragraph = '';
+      }
+      flushList();
+    } else {
+      // Regular text
+      flushList();
+      paragraph += (paragraph ? ' ' : '') + trimmed;
+    }
+  }
+
+  // Flush remaining content
+  if (paragraph.trim()) {
+    flushList();
+    blocks.push(<p key={`p-${blockIndex++}`}>{paragraph.trim()}</p>);
+  }
+  flushList();
+
+  return blocks;
 }
 
 interface CaseStudyProps {
@@ -121,10 +180,8 @@ export default function CaseStudy({
                     {isRichTextContent(section.content) ? (
                       <TinaMarkdown content={section.content} />
                     ) : typeof section.content === 'string' && section.content.trim() && !section.content.includes('[object Object]') ? (
-                      // Render plain text as paragraphs
-                      section.content.split('\n\n').map((para, i) => (
-                        <p key={i}>{para}</p>
-                      ))
+                      // Render plain text with markdown parsing
+                      renderMarkdownString(section.content)
                     ) : null}
                   </div>
                 )}
