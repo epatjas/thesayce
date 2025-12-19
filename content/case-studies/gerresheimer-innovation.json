@@ -4,6 +4,7 @@
   "title": "Building Innovation Infrastructure from Zero",
   "subtitle": "How I created Gerresheimer's first systematic approach to innovation in a 150-year-old medical packaging company",
   "heroImage": "/images/adam-kring-EFRD6Cr7skc-unsplash.jpg",
+  "heroLogo": "/images/ger-logo-D5rYt99Q.svg",
   "context": {
     "client": "Gerresheimer",
     "clientFull": "Gerresheimer AG (€2B+ revenue, 10,000+ employees)",
@@ -53,8 +54,7 @@
       },
       "images": {
         "layout": "full",
-        "image1": "/images/adam-kring-EFRD6Cr7skc-unsplash.jpg",
-        "logo": "/images/ger-logo-D5rYt99Q.svg"
+        "image1": "/images/adam-kring-EFRD6Cr7skc-unsplash.jpg"
       }
     },
     {
