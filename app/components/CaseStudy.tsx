@@ -5,6 +5,7 @@ import { TinaMarkdown, TinaMarkdownContent } from 'tinacms/dist/rich-text';
 import styles from './CaseStudy.module.css';
 
 interface CaseStudySection {
+  tag?: string;
   heading?: string;
   content?: TinaMarkdownContent | string;
   quote?: {
@@ -172,7 +173,12 @@ export default function CaseStudy({
         {sections?.map((section, index) => (
           <div key={index} className={styles.sectionWrapper}>
             <section className={styles.section}>
-              <h2 className={styles.sectionHeading}>{section.heading}</h2>
+              <div className={styles.sectionHeader}>
+                {section.tag && (
+                  <span className={styles.sectionTag}>{section.tag}</span>
+                )}
+                <h2 className={styles.sectionHeading}>{section.heading}</h2>
+              </div>
 
               <div className={styles.sectionBody}>
                 {section.content && (
