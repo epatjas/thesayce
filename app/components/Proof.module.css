@@ -21,6 +21,15 @@
   gap: 1.5rem;
 }
 
+.cardLink {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.cardLink:hover {
+  opacity: 1;
+}
+
 .card {
   display: flex;
   flex-direction: column;

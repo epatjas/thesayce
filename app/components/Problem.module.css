@@ -9,7 +9,7 @@
 
 .textColumns {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr;
   gap: clamp(40px, 8vw, 120px);
   align-items: start;
   margin-bottom: 3rem;
@@ -19,15 +19,14 @@
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   line-height: 1.7;
   color: var(--color-text-secondary);
-  max-width: 320px;
 }
 
 .pullquote {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-style: italic;
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.2;
   color: var(--color-text);
 }
 
