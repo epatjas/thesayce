@@ -133,7 +133,7 @@ export default defineConfig({
                 type: "string",
                 name: "tag",
                 label: "Tag (optional)",
-                description: "Small label above the heading (e.g., 'PHASE 1', 'PHASE 2')",
+                description: "Small label above the section heading (e.g., 'PHASE 1', 'PHASE 2')",
               },
               {
                 type: "string",
