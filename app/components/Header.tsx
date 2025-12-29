@@ -18,7 +18,7 @@ export default function Header({ name, nav, cta }: HeaderProps) {
   return (
     <>
       <div className={styles.topBar}>
-        <a href="#" className={styles.logo}>
+        <a href="/" className={styles.logo}>
           {name}
         </a>
         <a href={cta.href} className={styles.cta}>
