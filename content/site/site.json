@@ -31,8 +31,8 @@
     "image": "/images/104 - DSC05848.jpg"
   },
   "question": {
-    "text": "",
-    "pullquote": "",
+    "text": "i walk into your office and immediately identify which meeting could be an email, which email could be a silence, and which silence is covering up the fact that your cto and cpo haven't made eye contact since the incident.",
+    "pullquote": "i hated every minute of it and my company is unrecognizable in the best way",
     "image": "/images/natalia-blauth-juZ7-SUQgpI-unsplash.jpg"
   },
   "whatIDo": {
@@ -42,7 +42,23 @@
   },
   "proof": {
     "show": true,
-    "items": []
+    "items": [
+      {
+        "client": "Gerresheimer",
+        "title": "Killed a 2M project before it wasted 18 months",
+        "image": "/images/adam-kring-EFRD6Cr7skc-unsplash.jpg"
+      },
+      {
+        "client": "Invacare Europe",
+        "title": "Got a stuck product to market 8 months faster",
+        "image": "/images/proof-2.jpg"
+      },
+      {
+        "client": "Fortum",
+        "title": "Turned a customer complaint into a new revenue stream",
+        "image": "/images/proof-3.jpg"
+      }
+    ]
   },
   "contact": {
     "headline": "Sometimes a short conversation is enough to unlock the next step.",
