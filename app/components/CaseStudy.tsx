@@ -113,7 +113,7 @@ export default function CaseStudy({
   return (
     <article className={styles.page}>
       <header className={styles.hero}>
-        <Link href="/#experience" className={styles.backLink}>
+        <Link href="/" className={styles.backLink}>
           &larr; Back
         </Link>
         <h1 className={styles.title}>{title}</h1>
