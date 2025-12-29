@@ -42,25 +42,13 @@ export default function Home() {
   // Get published case studies
   const caseStudies = getCaseStudies().filter(cs => cs.published);
 
-  // Merge case studies with existing proof items
-  // Case studies with preview data appear first, then fallback items
-  const proofItems = [
-    ...caseStudies.map(cs => ({
-      client: cs.context?.client || '',
-      title: cs.preview?.title || cs.title,
-      image: cs.preview?.image || '/images/proof-1.jpg',
-      slug: cs.slug,
-    })),
-    ...content.proof.items
-      .filter(item => {
-        // Keep existing items that don't have a matching case study
-        return !caseStudies.some(cs => cs.context?.client === item.client);
-      })
-      .map(item => ({
-        ...item,
-        slug: (item as { slug?: string }).slug, // Preserve slug from site.json if set
-      })),
-  ];
+  // Build proof items from case studies
+  const proofItems = caseStudies.map(cs => ({
+    client: cs.context?.client || '',
+    title: cs.preview?.title || cs.title,
+    image: cs.preview?.image || '/images/proof-1.jpg',
+    slug: cs.slug,
+  }));
 
   return (
     <>
