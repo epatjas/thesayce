@@ -1,0 +1,69 @@
+{
+  "slug": "invacare_europe",
+  "published": true,
+  "title": "Building Innovation Infrastructure from ZERO",
+  "subtitle": "How I created Gerresheimer's first systematic approach to innovation in a 150-year-old medical packaging company",
+  "heroImage": "/images/hero_invacare.png",
+  "heroLogo": "/images/ger-logo-D5rYt99Q.svg",
+  "context": {
+    "client": "Gerresheimer",
+    "clientFull": "Gerresheimer AG (€2B+ revenue, 10,000+ employees)",
+    "year": "July 2023 – September 2025",
+    "role": "Senior Innovation Manager",
+    "industry": "Medical & Pharmaceutical Packaging"
+  },
+  "sections": [
+    {
+      "heading": "The Challenge",
+      "content": "Gerresheimer had no formal innovation function. In a 150-year-old company operating in heavily regulated medical packaging, \"innovation\" meant incremental product improvements driven by customer requests—not systematic exploration of new opportunities. \n\nThe real constraints weren't technical. They were cultural and structural:\n\n* Every change requires compliance validation (FDA, EMA regulations)\n* Engineers optimized for risk avoidance, not experimentation\n* No budget or mandate for exploratory work\n* Innovation was everyone's side project and no one's priority\n",
+      "images": {
+        "layout": "three"
+      }
+    },
+    {
+      "heading": "What I Did",
+      "content": "",
+      "images": {
+        "layout": "full",
+        "image1": "/images/proof-1.jpg"
+      }
+    },
+    {
+      "heading": "Create permission to experiment",
+      "content": "Describe how you got initial buy-in. What was the first small win that proved the concept? Who did you need to convince?\n"
+    },
+    {
+      "heading": "First hackathon (end of 2023)",
+      "content": "I organized Gerresheimer's first-ever internal hackathon. This was about proving that structured unstructured time could exist in our culture.\n\nPLACEHOLDER: Add specifics—how many participants? What were the themes? What was the executive reaction? Did any projects continue afterward?\n",
+      "images": {
+        "layout": "three",
+        "image1": "/images/mesut-cicen-q5Ltu7fNifk-unsplash.jpg",
+        "image2": "/images/michael-t-5Nr0WhK6VTI-unsplash.jpg",
+        "image3": "/images/molly-the-cat-b9YNMOxdMxw-unsplash.jpg"
+      }
+    },
+    {
+      "heading": "Build the system",
+      "content": "Moved from running events to designing infrastructure: \n\n* Innovation KPIs and tracking frameworks\n* Cross-functional collaboration processes\n* Internal scouting for ideas + external technology monitoring\n* Coaching teams on innovation methods and stakeholder engagement\n"
+    },
+    {
+      "heading": "The insight",
+      "content": "The work isn't innovation itself—it's creating the conditions where innovation becomes possible.\nThat means: \n\n* Building trust with compliance teams, not working around them\n* Designing processes that feel safe for risk-averse engineers\n* Making innovation visible and measurable for executives\n* Connecting disconnected teams across a global organization\n",
+      "quote": {
+        "text": "\"Innovation in a regulated industry isn't about moving fast and breaking things. It's about creating safe spaces for experimentation within a system designed to prevent change.\""
+      },
+      "images": {
+        "layout": "full",
+        "image1": "/images/adam-kring-EFRD6Cr7skc-unsplash.jpg"
+      }
+    },
+    {
+      "heading": "What I'd do differently",
+      "content": "I treated compliance as an obstacle to work around instead of a partner to bring in early. Meant I designed two programs that got killed in review because they didn't account for documentation requirements. Expensive lesson. Now I start every project with a coffee chat with the compliance team—not to ask permission, but to understand their constraints before I'm too invested in a specific approach.\n"
+    }
+  ],
+  "preview": {
+    "image": "/images/hero_invacare-2.png",
+    "title": "Designing how a company works, not just what it makes"
+  }
+}
