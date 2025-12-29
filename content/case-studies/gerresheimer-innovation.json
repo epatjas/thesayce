@@ -1,7 +1,7 @@
 {
   "slug": "gerresheimer-innovation",
   "published": true,
-  "title": "Building Innovation Infrastructure from Zero",
+  "title": "Building Innovation Infrastructure from ZERO",
   "subtitle": "How I created Gerresheimer's first systematic approach to innovation in a 150-year-old medical packaging company",
   "heroImage": "/images/adam-kring-EFRD6Cr7skc-unsplash.jpg",
   "heroLogo": "/images/ger-logo-D5rYt99Q.svg",
@@ -29,7 +29,6 @@
       }
     },
     {
-      "tag": "PHASE 1",
       "heading": "Create permission to experiment",
       "content": "Describe how you got initial buy-in. What was the first small win that proved the concept? Who did you need to convince?\n"
     },
