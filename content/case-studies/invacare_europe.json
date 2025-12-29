@@ -1,16 +1,16 @@
 {
   "slug": "invacare_europe",
   "published": true,
-  "title": "Building Innovation Infrastructure from ZERO",
-  "subtitle": "How I created Gerresheimer's first systematic approach to innovation in a 150-year-old medical packaging company",
+  "title": "Designing how a company works, not just what it makes",
+  "subtitle": "How I rebuilt Invacare's operating rhythm during a period of organizational chaos",
   "heroImage": "/images/hero_invacare.png",
-  "heroLogo": "/images/ger-logo-D5rYt99Q.svg",
+  "heroLogo": "",
   "context": {
-    "client": "Gerresheimer",
-    "clientFull": "Gerresheimer AG (€2B+ revenue, 10,000+ employees)",
-    "year": "July 2023 – September 2025",
-    "role": "Senior Innovation Manager",
-    "industry": "Medical & Pharmaceutical Packaging"
+    "client": "Invacare",
+    "clientFull": "Invacare Europe (medical equipment, wheelchairs, homecare)",
+    "year": "January 2018 – October 2022 (4+ years)",
+    "role": "Head of Continuous Improvement EMEA",
+    "industry": "Medical devices (regulated, traditional, slow-moving)"
   },
   "sections": [
     {
