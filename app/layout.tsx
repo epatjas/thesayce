@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Serif, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const ibmPlexSerif = IBM_Plex_Serif({
@@ -49,6 +50,7 @@ export default function RootLayout({
     <html lang="en" className={`${ibmPlexSerif.variable} ${inter.variable}`}>
       <body>
         {children}
+        <Analytics />
       </body>
     </html>
   );
