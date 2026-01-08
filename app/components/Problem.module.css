@@ -43,13 +43,27 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding-top: clamp(40px, 6vh, 80px);
+  }
+
   .textColumns {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .pullquote {
+    order: 1;
   }
 
   .text {
+    order: 2;
     max-width: none;
+  }
+
+  .imageWrapper {
+    margin-top: 0.5rem;
   }
 
   .image {

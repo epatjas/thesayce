@@ -3,8 +3,6 @@ import path from 'path';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
-import Question from './components/Question';
-import WhatIDo from './components/WhatIDo';
 import Proof from './components/Proof';
 import Contact from './components/Contact';
 import content from '../content/site/site.json';
@@ -67,16 +65,6 @@ export default function Home() {
           text={content.problem.text}
           pullquote={content.problem.pullquote}
           image={content.problem.image}
-        />
-        <Question
-          text={content.question.text}
-          pullquote={content.question.pullquote}
-          image={content.question.image}
-        />
-        <WhatIDo
-          text={content.whatIDo.text}
-          pullquote={content.whatIDo.pullquote}
-          image={content.whatIDo.image}
         />
         <Proof
           show={content.proof.show}
