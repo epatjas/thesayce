@@ -15,14 +15,14 @@
   "sections": [
     {
       "heading": "The Role",
-      "content": "I joined Invacare in January 2018 as the first Innovation & Business Design Coach in a newly established innovation department. \n\nThe mandate was simple on paper and hard in practice: introduce user-centred innovation into a global medical device company that hadn’t systematically done product innovation in years.\n",
+      "content": "I joined Invacare in January 2018 as the first Innovation & Business Design Coach in a newly established innovation department.\n\nThe mandate was simple on paper and hard in practice: introduce user-centred innovation into a global medical device company that hadn’t systematically done product innovation in years.\n",
       "images": {
         "layout": "three"
       }
     },
     {
       "heading": "Learning The Ropes (fast)",
-      "content": "I came from creative agencies and a start-up environment where everyone fits in one room. Invacare was the opposite: thousands of employees, strong legacy products, long-tenured teams, and deeply embedded ways of working.\n\nThere was no gradual onboarding. I jumped straight into:\n\n* Building the Innovation Playbook\n* Training employees in design thinking and business model innovation\n* Coaching sprint teams across functions and countries\n\nI learned to coach by coaching and shadowing experts. I studied the theory while applying it. \n\nWhat made this possible was explicit top-level support: the innovation function was sponsored directly by senior leadership, which gave the work legitimacy from day one.\n"
+      "content": "I came from creative agencies and a start-up environment where everyone fits in one room. Invacare was the opposite: thousands of employees, strong legacy products, long-tenured teams, and deeply embedded ways of working.\n\nThere was no gradual onboarding. I jumped straight into:\n\n* Building the Innovation Playbook\n* Training employees in design thinking and business model innovation\n* Coaching sprint teams across functions and countries\n\nI learned to coach by coaching and shadowing experts. I studied the theory while applying it.\n\nWhat made this possible was explicit top-level support: the innovation function was sponsored directly by senior leadership, which gave the work legitimacy from day one.\n"
     },
     {
       "heading": "Changing The Ways Of Working",
@@ -36,7 +36,7 @@
     },
     {
       "heading": "The Insight",
-      "content": "Invacare gave me a deep, practical understanding of:\n\n* European healthcare systems and reimbursement models\n* The reality that in healthcare, the user is often neither the buyer nor the decision-maker\n* How innovation intersects with regulation, legacy portfolios, and operational constraints\n\nI coached innovation sprint teams that uncovered white spots in the market, leading to new business models and later spin-offs. \n\nJust as importantly, I saw where innovation stalls: not because of ideas, but because of incentives, language, and decision structures.\n",
+      "content": "Invacare gave me a deep, practical understanding of:\n\n* European healthcare systems and reimbursement models\n* The reality that in healthcare, the user is often neither the buyer nor the decision-maker\n* How innovation intersects with regulation, legacy portfolios, and operational constraints\n\nI coached innovation sprint teams that uncovered white spots in the market, leading to new business models and later spin-offs.\n\nJust as importantly, I saw where innovation stalls: not because of ideas, but because of incentives, language, and decision structures.\n",
       "quote": {
         "text": "\"Innovation in a regulated industry isn't about moving fast and breaking things. It's about creating safe spaces for experimentation within a system designed to prevent change.\""
       },
@@ -44,14 +44,10 @@
         "layout": "full",
         "image1": "/images/adam-kring-EFRD6Cr7skc-unsplash.jpg"
       }
-    },
-    {
-      "heading": "What I'd do differently",
-      "content": "I treated compliance as an obstacle to work around instead of a partner to bring in early. Meant I designed two programs that got killed in review because they didn't account for documentation requirements. Expensive lesson. Now I start every project with a coffee chat with the compliance team—not to ask permission, but to understand their constraints before I'm too invested in a specific approach.\n"
     }
   ],
   "preview": {
     "image": "/images/hero_invacare-2.png",
-    "title": "Designing how a company works, not just what it makes"
+    "title": "Corporate Innovation 1.1."
   }
 }
