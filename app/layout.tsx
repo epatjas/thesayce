@@ -19,6 +19,25 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Lili Sayce | Innovation Consultant",
   description: "I create protected spaces where good ideas can survive long enough to prove themselves.",
+  openGraph: {
+    title: "Lili Sayce | Innovation Consultant",
+    description: "I create protected spaces where good ideas can survive long enough to prove themselves.",
+    type: "website",
+    images: [
+      {
+        url: "/images/share.png",
+        width: 1200,
+        height: 630,
+        alt: "Lili Sayce - Innovation Consultant",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lili Sayce | Innovation Consultant",
+    description: "I create protected spaces where good ideas can survive long enough to prove themselves.",
+    images: ["/images/share.png"],
+  },
 };
 
 export default function RootLayout({
