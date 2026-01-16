@@ -10,5 +10,11 @@
     "year": "2017",
     "role": "Head of Sales & Communication",
     "industry": "AR/VR"
-  }
+  },
+  "sections": [
+    {
+      "heading": "The Role",
+      "content": "My title was Head of Sales and Communication. I was working in a small team. In my short stay at Somniacs I was travelling to Brazil for an export effort and Portugal for a trade show. One of my responsibilities was building a CRM system.\n"
+    }
+  ]
 }
