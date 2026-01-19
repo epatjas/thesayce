@@ -1,4 +1,12 @@
 {
   "slug": "Studio Divine",
-  "title": "Studio Divine"
+  "title": "Studio Divine",
+  "subtitle": "Swiss Deign Agency",
+  "heroImage": "/images/proof-1.jpg",
+  "sections": [
+    {
+      "heading": "The Role",
+      "content": "Studio Divine was my first job in Switzerland, and a crash course in more than just design.\n\nThe studio worked primarily in the watchmaking industry, where design decisions are made at a microscopic scale, expectations are uncompromising, and brand heritage carries real weight. \n\nI managed client projects end-to-end, from the initial sales pitch through development and into mass production, while running dedicated accounts across Europe, the US, and Asia. Alongside that, I contributed to business and brand development for the agency and partly managed a design team in Switzerland and Hong Kong.\n"
+    }
+  ]
 }
