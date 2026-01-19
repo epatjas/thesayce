@@ -1,8 +1,14 @@
 {
   "slug": "Studio Divine",
   "title": "Studio Divine",
-  "subtitle": "Swiss Deign Agency",
+  "subtitle": "Swiss Design Agency",
   "heroImage": "/images/proof-1.jpg",
+  "context": {
+    "client": "Studio Divine Sarl",
+    "year": "2014 - 2016",
+    "role": "Account & Project Manager",
+    "industry": "Watchmaking Industry"
+  },
   "sections": [
     {
       "heading": "The Role",
