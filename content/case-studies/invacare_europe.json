@@ -1,6 +1,7 @@
 {
   "slug": "invacare_europe",
   "published": true,
+  "order": 2,
   "title": "Entering the world of corporate innovation management",
   "subtitle": "Building an innovation practice from scratch",
   "heroImage": "/images/hero_invacare.png",

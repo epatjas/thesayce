@@ -12,6 +12,7 @@ interface CaseStudyData {
   slug: string;
   published: boolean;
   title: string;
+  order?: number;
   context?: {
     client?: string;
   };
@@ -37,8 +38,10 @@ function getCaseStudies(): CaseStudyData[] {
 }
 
 export default function Home() {
-  // Get published case studies
-  const caseStudies = getCaseStudies().filter(cs => cs.published);
+  // Get published case studies, sorted by order (lower numbers first)
+  const caseStudies = getCaseStudies()
+    .filter(cs => cs.published)
+    .sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
 
   // Build proof items from case studies
   const proofItems = caseStudies.map(cs => ({

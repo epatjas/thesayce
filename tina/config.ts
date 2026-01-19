@@ -51,6 +51,12 @@ export default defineConfig({
             description: "Used in the URL (e.g., 'gerresheimer-innovation' becomes /case-studies/gerresheimer-innovation)",
           },
           {
+            type: "number",
+            name: "order",
+            label: "Display Order",
+            description: "Controls the order on the homepage (lower numbers appear first)",
+          },
+          {
             type: "boolean",
             name: "published",
             label: "Published",
