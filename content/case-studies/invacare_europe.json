@@ -1,7 +1,7 @@
 {
   "slug": "invacare_europe",
-  "published": true,
   "order": 2,
+  "published": true,
   "title": "Entering the world of corporate innovation management",
   "subtitle": "Building an innovation practice from scratch",
   "heroImage": "/images/hero_invacare.png",
@@ -39,7 +39,7 @@
       "heading": "The Insight",
       "content": "Invacare gave me a deep, practical understanding of:\n\n* European healthcare systems and reimbursement models\n* The reality that in healthcare, the user is often neither the buyer nor the decision-maker\n* How innovation intersects with regulation, legacy portfolios, and operational constraints\n\nI coached innovation sprint teams that uncovered white spots in the market, leading to new business models and later spin-offs.\n\nJust as importantly, I saw where innovation stalls: not because of ideas, but because of incentives, language, and decision structures.\n",
       "quote": {
-        "text": "\"Innovation in a regulated industry isn't about moving fast and breaking things. It's about creating safe spaces for experimentation within a system designed to prevent change.\""
+        "text": ""
       },
       "images": {
         "layout": "full",
