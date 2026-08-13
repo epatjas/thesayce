@@ -67,9 +67,9 @@
 }
 
 @media (max-width: 768px) {
-  .section {
-    padding-top: clamp(40px, 6vh, 80px);
-  }
+  /* Section padding is governed by --section-padding, which steps down on
+     mobile in globals.css. A local override here only made this one section's
+     top spacing disagree with its own bottom. */
 
   .textColumns {
     display: flex;
