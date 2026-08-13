@@ -1,84 +1,49 @@
-import fs from 'fs';
-import path from 'path';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { sanityFetch } from '@/sanity/live';
+import { PAGE_QUERY, SITE_SETTINGS_QUERY } from '@/sanity/queries';
+import { buildMetadata } from '@/app/lib/metadata';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Problem from './components/Problem';
-import Proof from './components/Proof';
-import Contact from './components/Contact';
-import content from '../content/site/site.json';
+import Blocks from './components/blocks/Blocks';
+import type { Block } from './components/blocks/types';
 import styles from './page.module.css';
 
-interface CaseStudyData {
-  slug: string;
-  published: boolean;
-  title: string;
-  order?: number;
-  context?: {
-    client?: string;
-  };
-  preview?: {
-    image?: string;
-    title?: string;
-  };
+async function getHome() {
+  const [page, settings] = await Promise.all([
+    sanityFetch({ query: PAGE_QUERY, params: { slug: 'home' } }),
+    sanityFetch({ query: SITE_SETTINGS_QUERY }),
+  ]);
+  return { page: page.data, settings: settings.data };
 }
 
-function getCaseStudies(): CaseStudyData[] {
-  const caseStudiesDir = path.join(process.cwd(), 'content/case-studies');
-
-  if (!fs.existsSync(caseStudiesDir)) {
-    return [];
-  }
-
-  const files = fs.readdirSync(caseStudiesDir).filter(f => f.endsWith('.json'));
-
-  return files.map(file => {
-    const fileContent = fs.readFileSync(path.join(caseStudiesDir, file), 'utf8');
-    return JSON.parse(fileContent) as CaseStudyData;
+export async function generateMetadata(): Promise<Metadata> {
+  const { page, settings } = await getHome();
+  // `page.title` is the studio's internal label ("Homepage") — not a page
+  // title anyone should see, so it is deliberately not passed through.
+  return buildMetadata({
+    page: {
+      seoTitle: page?.seoTitle,
+      seoDescription: page?.seoDescription,
+      shareImage: page?.shareImage,
+    },
+    settings,
+    absolute: true,
   });
 }
 
-export default function Home() {
-  // Get published case studies, sorted by order (lower numbers first)
-  const caseStudies = getCaseStudies()
-    .filter(cs => cs.published)
-    .sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+export default async function Home() {
+  const { page, settings } = await getHome();
 
-  // Build proof items from case studies
-  const proofItems = caseStudies.map(cs => ({
-    client: cs.context?.client || '',
-    title: cs.preview?.title || cs.title,
-    image: cs.preview?.image || '/images/proof-1.jpg',
-    slug: cs.slug,
-  }));
+  if (!page) notFound();
 
   return (
     <>
-      <Header
-        name={content.header.name}
-        nav={content.header.nav}
-        cta={content.header.cta}
-      />
+      <Header settings={settings} />
       <main className={styles.main}>
-        <Hero
-          headline={content.hero.headline}
-          subline={content.hero.subline}
-          image={content.hero.image}
-        />
-        <Problem
-          text={content.problem.text}
-          pullquote={content.problem.pullquote}
-          image={content.problem.image}
-        />
-        <Proof
-          show={content.proof.show}
-          items={proofItems}
-        />
-        <Contact
-          headline={content.contact.headline}
-          text={content.contact.text}
-          email={content.contact.email}
-          linkedin={content.contact.linkedin}
-          image={content.contact.image}
+        <Blocks
+          blocks={page.blocks as Block[] | null}
+          documentId={page._id}
+          documentType="page"
         />
       </main>
     </>

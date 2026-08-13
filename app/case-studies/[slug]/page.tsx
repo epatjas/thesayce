@@ -1,113 +1,84 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import fs from 'fs';
-import path from 'path';
+import { stegaClean } from 'next-sanity';
+import { client } from '@/sanity/client';
+import { sanityFetch } from '@/sanity/live';
+import {
+  CASE_STUDY_QUERY,
+  CASE_STUDY_SLUGS_QUERY,
+  SITE_SETTINGS_QUERY,
+} from '@/sanity/queries';
+import { buildMetadata } from '@/app/lib/metadata';
 import Header from '../../components/Header';
 import CaseStudy from '../../components/CaseStudy';
-import siteContent from '../../../content/site/site.json';
+import type { Block } from '../../components/blocks/types';
+import type { SanityImage } from '@/sanity/image';
 
-// Revalidate pages every 60 seconds to pick up content/image changes
-export const revalidate = 60;
-
-interface CaseStudyData {
-  slug: string;
-  published: boolean;
-  title: string;
-  subtitle?: string;
-  heroImage?: string;
-  heroLogo?: string;
-  context?: {
-    client?: string;
-    clientFull?: string;
-    year?: string;
-    role?: string;
-    industry?: string;
-  };
-  sections?: Array<{
-    heading?: string;
-    content?: unknown;
-    quote?: {
-      text?: string;
-    };
-    images?: {
-      layout?: 'full' | 'three';
-      image1?: string;
-      image2?: string;
-      image3?: string;
-    };
-  }>;
-  preview?: {
-    image?: string;
-    title?: string;
-  };
-}
-
-function getCaseStudies(): CaseStudyData[] {
-  const caseStudiesDir = path.join(process.cwd(), 'content/case-studies');
-
-  if (!fs.existsSync(caseStudiesDir)) {
+export async function generateStaticParams() {
+  try {
+    const slugs = await client.fetch(CASE_STUDY_SLUGS_QUERY);
+    return (slugs || [])
+      .filter((slug): slug is string => Boolean(slug))
+      .map((slug) => ({ slug }));
+  } catch {
+    // Pages render on demand anyway; don't fail the build if Sanity is
+    // briefly unreachable.
     return [];
   }
+}
 
-  const files = fs.readdirSync(caseStudiesDir).filter(f => f.endsWith('.json'));
+async function getCaseStudy(slug: string) {
+  const [caseStudy, settings] = await Promise.all([
+    sanityFetch({ query: CASE_STUDY_QUERY, params: { slug } }),
+    sanityFetch({ query: SITE_SETTINGS_QUERY }),
+  ]);
+  return { caseStudy: caseStudy.data, settings: settings.data };
+}
 
-  return files.map(file => {
-    const content = fs.readFileSync(path.join(caseStudiesDir, file), 'utf8');
-    return JSON.parse(content) as CaseStudyData;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const { caseStudy, settings } = await getCaseStudy(slug);
+
+  if (!caseStudy) return { title: 'Case study not found' };
+
+  return buildMetadata({
+    page: {
+      title: caseStudy.title,
+      seoDescription: stegaClean(caseStudy.subtitle),
+      shareImage: caseStudy.heroImage as SanityImage,
+    },
+    settings,
   });
 }
 
-function getCaseStudyBySlug(slug: string): CaseStudyData | null {
-  const caseStudies = getCaseStudies();
-  return caseStudies.find(cs => cs.slug === slug && cs.published) || null;
-}
-
-export async function generateStaticParams() {
-  const caseStudies = getCaseStudies();
-  return caseStudies
-    .filter(cs => cs.published)
-    .map(cs => ({ slug: cs.slug }));
-}
-
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export default async function CaseStudyPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
-  const caseStudy = getCaseStudyBySlug(slug);
+  const { caseStudy, settings } = await getCaseStudy(slug);
 
-  if (!caseStudy) {
-    return {
-      title: 'Case Study Not Found',
-    };
-  }
-
-  return {
-    title: `${caseStudy.title} | Lili Sayce`,
-    description: caseStudy.subtitle || `Case study: ${caseStudy.title}`,
-  };
-}
-
-export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const caseStudy = getCaseStudyBySlug(slug);
-
-  if (!caseStudy) {
-    notFound();
-  }
+  if (!caseStudy) notFound();
 
   return (
     <>
-      <Header {...siteContent.header} />
+      <Header settings={settings} />
       <main>
         <CaseStudy
-          title={caseStudy.title}
-          subtitle={caseStudy.subtitle}
-          heroImage={caseStudy.heroImage}
-          heroLogo={caseStudy.heroLogo}
-          context={caseStudy.context}
-          sections={caseStudy.sections as CaseStudy['sections']}
+          _id={caseStudy._id}
+          title={caseStudy.title ?? undefined}
+          subtitle={caseStudy.subtitle ?? undefined}
+          heroImage={caseStudy.heroImage as SanityImage}
+          heroLogo={caseStudy.heroLogo as SanityImage}
+          context={caseStudy.context ?? undefined}
+          blocks={caseStudy.blocks as Block[] | null}
         />
       </main>
     </>
   );
 }
-
-// Type helper for CaseStudy props
-type CaseStudy = React.ComponentProps<typeof CaseStudy>;

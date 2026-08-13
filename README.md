@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# lili-site
 
-## Getting Started
+Lili Sayce's portfolio. Next.js 16 (App Router) with [Sanity](https://sanity.io)
+as the CMS.
 
-First, run the development server:
+- **Site:** rendered from Sanity content, published changes appear without a
+  redeploy
+- **Studio:** embedded at `/studio`
+- **Editor guide (Finnish):** [`LILI-OHJE.md`](./LILI-OHJE.md)
+- **First-time setup:** [`SANITY-SETUP.md`](./SANITY-SETUP.md)
+
+## Requirements
+
+Node **22.12+** (the Sanity CLI requires it). `.nvmrc` pins the version:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+nvm use
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Site: http://localhost:3000
+- Studio: http://localhost:3000/studio
 
-## Learn More
+Needs `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET` and
+`SANITY_API_READ_TOKEN` in `.env.local` — see
+[`SANITY-SETUP.md`](./SANITY-SETUP.md).
 
-To learn more about Next.js, take a look at the following resources:
+## Content model
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pages and case studies are built from **blocks** — an ordered list the editor
+picks from, rather than a fixed set of fields. Adding a section is a content
+change, not a code change.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Path | What |
+| --- | --- |
+| `sanity/schemaTypes/blocks/` | One file per block type |
+| `sanity/schemaTypes/documents/` | `page`, `caseStudy`, `siteSettings` |
+| `sanity/schemaTypes/objects/richText.ts` | The constrained Portable Text config |
+| `sanity/structure.ts` | Studio sidebar layout |
+| `sanity/queries.ts` | All GROQ queries |
+| `app/components/blocks/` | One renderer per block type |
 
-## Deploy on Vercel
+The same block types render differently on a page than inside a case study —
+see the `variant` prop in `app/components/blocks/Blocks.tsx`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Adding a block type
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Add a schema file in `sanity/schemaTypes/blocks/`
+2. Register it in `sanity/schemaTypes/index.ts` and in
+   `sanity/schemaTypes/objects/blockArrays.ts`
+3. Add a renderer in `app/components/blocks/` and a case to `Blocks.tsx`
+4. Run `npm run typegen`
+
+## Types
+
+Query result types are generated from the schema and committed as
+`sanity.types.ts`. Regenerate after any schema or query change:
+
+```bash
+npm run typegen
+```
+
+## Migration from TinaCMS
+
+The old Tina JSON lives in `content/` and is read by
+`scripts/migrate-to-sanity.mjs`. Once the migrated content is verified in
+production, both can be deleted.
