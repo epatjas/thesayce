@@ -194,11 +194,19 @@ async function main() {
       '\n',
   );
 
-  const draft = await client.fetch('*[_id == "drafts.page-home"][0]{_id}');
+  // Must be raw: the default perspective overlays drafts onto the base id, so
+  // a query for "drafts.page-home" silently matches nothing even when a draft
+  // exists. That is exactly how a stale draft went unnoticed for a whole day.
+  const draft = await client
+    .withConfig({ perspective: 'raw' })
+    .fetch('*[_id == "drafts.page-home"][0]{_id, _updatedAt}');
+
   if (draft) {
     console.warn(
-      '! An unpublished draft of the homepage exists. This patches the published\n' +
-        '  document; publish or discard the draft first to avoid confusion.\n',
+      `! An unpublished draft of the homepage exists (updated ${draft._updatedAt}).\n` +
+        '  This script patches the PUBLISHED document, so the draft will not get\n' +
+        '  these changes — and publishing it later would revert them.\n' +
+        '  Discard or publish the draft in the studio first.\n',
     );
   }
 
