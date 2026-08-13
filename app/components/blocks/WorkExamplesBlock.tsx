@@ -34,7 +34,13 @@ export default function WorkExamplesBlock({
               </div>
 
               {item.client && (
-                <p className={styles.workClient}>Client | {item.client}</p>
+                <p className={styles.workClient}>
+                  Client
+                  <span className={styles.workSeparator} aria-hidden="true">
+                    |
+                  </span>
+                  {item.client}
+                </p>
               )}
               <h3 className={styles.workTitle}>{item.title}</h3>
               {item.description && (
