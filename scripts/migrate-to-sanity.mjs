@@ -225,6 +225,22 @@ async function buildHomepage() {
     });
   }
 
+  // The "question" section never rendered on the old site because the homepage
+  // section list was hardcoded. It was nonetheless rewritten into finished copy
+  // and given a nav link ("When You Might Need Me" -> #question), so it is a
+  // real section that was simply invisible. It belongs between problem and
+  // experience, matching the nav order.
+  if (site.question) {
+    blocks.push({
+      _type: 'textSection',
+      _key: key(),
+      body: toPortableText(site.question.text),
+      pullquote: site.question.pullquote,
+      images: await uploadImages([site.question.image].filter(Boolean)),
+      anchor: 'question',
+    });
+  }
+
   blocks.push({
     _type: 'caseStudyGrid',
     _key: key(),
@@ -256,18 +272,14 @@ async function buildHomepage() {
 }
 
 /**
- * The old site.json carried two sections — "question" and "whatIDo" — that the
- * homepage never rendered: they were editable in Tina but wired to nothing.
- * They read like unfinished placeholder copy, so they are migrated into a
- * draft page rather than published. Nothing is lost, nothing goes live.
+ * "whatIDo" also never rendered, but unlike "question" it was never rewritten
+ * and has no nav link — it is still the original jokey placeholder text. It is
+ * migrated into a draft page so nothing is lost, but it does not go live.
  */
 async function buildUnusedDraft() {
   const blocks = [];
 
-  for (const [name, source] of [
-    ['Question', site.question],
-    ['What I Do', site.whatIDo],
-  ]) {
+  for (const [name, source] of [['What I Do', site.whatIDo]]) {
     if (!source) continue;
     blocks.push({
       _type: 'textSection',
