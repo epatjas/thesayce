@@ -278,6 +278,9 @@
 }
 
 .workTitle {
+  /* Overrides the global heading rule, which sets every h1–h6 to the serif
+     face. These captions are sans, unlike the section headings. */
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.25rem, 1.6vw, 1.5rem);
   font-weight: 400;
   line-height: 1.3;
