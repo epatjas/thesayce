@@ -5,6 +5,7 @@
   --color-text-muted: #6a6a6a;
   /* Separates near-white imagery from the near-white page. */
   --color-border: #e3e1df;
+  --color-border-strong: #d2cfcb;
   /* Tinted panels: context boxes, tag pills, quote callouts. */
   --color-surface: #f5f3f1;
   --max-width: 1200px;
