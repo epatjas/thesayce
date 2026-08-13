@@ -8,6 +8,7 @@ import { textSection } from './blocks/textSection';
 import { pullquote } from './blocks/pullquote';
 import { imageGroup } from './blocks/imageGroup';
 import { cards } from './blocks/cards';
+import { workExamples } from './blocks/workExamples';
 import { caseStudyGrid } from './blocks/caseStudyGrid';
 import { logoStrip } from './blocks/logoStrip';
 import { contactBlock } from './blocks/contactBlock';
@@ -27,6 +28,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   pullquote,
   imageGroup,
   cards,
+  workExamples,
   caseStudyGrid,
   logoStrip,
   contactBlock,

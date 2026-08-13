@@ -21,6 +21,7 @@ const BLOCKS = /* groq */ `blocks[]{
   _type == "contactBlock" => { image ${IMAGE} },
   _type == "imageGroup" => { images[] ${IMAGE} },
   _type == "logoStrip" => { logos[]{ ..., image ${IMAGE} } },
+  _type == "workExamples" => { items[]{ ..., image ${IMAGE} } },
   _type == "caseStudyGrid" => {
     "cards": select(
       source == "picked" => items[]-> ${CARD},

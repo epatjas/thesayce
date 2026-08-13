@@ -58,6 +58,22 @@ export interface CardsBlockData {
   anchor?: string;
 }
 
+export interface WorkExamplesBlockData {
+  _type: 'workExamples';
+  _key: string;
+  heading?: string;
+  intro?: PortableTextBlock[];
+  items?: Array<{
+    _key?: string;
+    image?: SanityImage;
+    duration?: string;
+    client?: string;
+    title?: string;
+    description?: string;
+  }>;
+  anchor?: string;
+}
+
 export interface CaseStudyCard {
   _id: string;
   slug?: string;
@@ -98,6 +114,7 @@ export type Block =
   | TextSectionBlockData
   | PullquoteBlockData
   | CardsBlockData
+  | WorkExamplesBlockData
   | ImageGroupBlockData
   | CaseStudyGridBlockData
   | LogoStripBlockData

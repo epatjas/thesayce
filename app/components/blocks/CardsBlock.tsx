@@ -10,7 +10,7 @@ export default function CardsBlock({ heading, intro, items, anchor }: CardsBlock
     <section id={anchor || undefined} className={styles.cardsSection}>
       <div className={styles.cardsContainer}>
         {heading && <h2 className={styles.heading}>{heading}</h2>}
-        <PortableTextBody value={intro} className={styles.cardsIntro} />
+        <PortableTextBody value={intro} className={styles.sectionIntro} />
 
         <div className={styles.cardsGrid}>
           {cards.map((card, i) => (
