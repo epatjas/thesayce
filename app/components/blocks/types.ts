@@ -49,6 +49,15 @@ export interface ImageGroupBlockData {
   anchor?: string;
 }
 
+export interface CardsBlockData {
+  _type: 'cards';
+  _key: string;
+  heading?: string;
+  intro?: PortableTextBlock[];
+  items?: Array<{ _key?: string; title?: string; body?: string }>;
+  anchor?: string;
+}
+
 export interface CaseStudyCard {
   _id: string;
   slug?: string;
@@ -88,6 +97,7 @@ export type Block =
   | HeroBlockData
   | TextSectionBlockData
   | PullquoteBlockData
+  | CardsBlockData
   | ImageGroupBlockData
   | CaseStudyGridBlockData
   | LogoStripBlockData

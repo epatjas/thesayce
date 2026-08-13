@@ -49,6 +49,9 @@ export type CaseStudyBlocks = Array<
     } & Pullquote)
   | ({
       _key: string;
+    } & Cards)
+  | ({
+      _key: string;
     } & ImageGroup)
   | ({
       _key: string;
@@ -65,6 +68,9 @@ export type PageBlocks = Array<
   | ({
       _key: string;
     } & Pullquote)
+  | ({
+      _key: string;
+    } & Cards)
   | ({
       _key: string;
     } & ImageGroup)
@@ -144,6 +150,19 @@ export type CaseStudyGrid = {
       _key: string;
     } & CaseStudyReference
   >;
+  anchor?: string;
+};
+
+export type Cards = {
+  _type: "cards";
+  heading?: string;
+  intro?: RichText;
+  items?: Array<{
+    title?: string;
+    body?: string;
+    _type: "card";
+    _key: string;
+  }>;
   anchor?: string;
 };
 
@@ -426,6 +445,7 @@ export type AllSanitySchemaTypes =
   | LogoStrip
   | CaseStudyReference
   | CaseStudyGrid
+  | Cards
   | ImageGroup
   | Pullquote
   | TextSection
@@ -468,6 +488,19 @@ export type PAGE_QUERY_RESULT = {
     _type: "image";
   } | null;
   blocks: Array<
+    | {
+        _key: string;
+        _type: "cards";
+        heading?: string;
+        intro?: RichText;
+        items?: Array<{
+          title?: string;
+          body?: string;
+          _type: "card";
+          _key: string;
+        }>;
+        anchor?: string;
+      }
     | {
         _key: string;
         _type: "caseStudyGrid";
@@ -684,6 +717,19 @@ export type CASE_STUDY_QUERY_RESULT = {
     industry?: string;
   } | null;
   blocks: Array<
+    | {
+        _key: string;
+        _type: "cards";
+        heading?: string;
+        intro?: RichText;
+        items?: Array<{
+          title?: string;
+          body?: string;
+          _type: "card";
+          _key: string;
+        }>;
+        anchor?: string;
+      }
     | {
         _key: string;
         _type: "imageGroup";

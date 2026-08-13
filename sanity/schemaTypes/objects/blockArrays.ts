@@ -1,6 +1,6 @@
 import { defineArrayMember, defineType } from 'sanity';
 
-const SHARED_BLOCKS = ['textSection', 'pullquote', 'imageGroup', 'logoStrip'];
+const SHARED_BLOCKS = ['textSection', 'pullquote', 'cards', 'imageGroup', 'logoStrip'];
 
 /**
  * Blocks available on a Page. This is the "+ Add section" menu the editor sees.

@@ -4,6 +4,7 @@ import HeroBlock from './HeroBlock';
 import TextSectionBlock from './TextSectionBlock';
 import PullquoteBlock from './PullquoteBlock';
 import ImageGroupBlock from './ImageGroupBlock';
+import CardsBlock from './CardsBlock';
 import CaseStudyGridBlock from './CaseStudyGridBlock';
 import LogoStripBlock from './LogoStripBlock';
 import ContactSectionBlock from './ContactSectionBlock';
@@ -27,6 +28,8 @@ function renderBlock(block: Block, variant: BlockVariant) {
       return <PullquoteBlock {...block} variant={variant} />;
     case 'imageGroup':
       return <ImageGroupBlock {...block} variant={variant} />;
+    case 'cards':
+      return <CardsBlock {...block} />;
     case 'caseStudyGrid':
       return <CaseStudyGridBlock {...block} />;
     case 'logoStrip':
