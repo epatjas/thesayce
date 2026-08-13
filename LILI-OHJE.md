@@ -9,7 +9,7 @@ Tarvittavia sanoja on noin viisitoista, ja ne on selitetty tässä ohjeessa.
 
 ## 1. Kirjautuminen
 
-Mene osoitteeseen **lilisayce.com/studio** ja kirjaudu sisään sillä
+Mene osoitteeseen **thesayce.com/studio** ja kirjaudu sisään sillä
 sähköpostiosoitteella, johon kutsu tuli.
 
 Kannattaa tallentaa osoite selaimen kirjanmerkkeihin.

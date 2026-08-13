@@ -98,11 +98,12 @@ so nothing gets duplicated.
 
 ## 4. Allow the studio to talk to the project
 
-In **sanity.io/manage → API → CORS origins**, add, both with credentials
+In **sanity.io/manage → API → CORS origins**, add, all with credentials
 allowed:
 
 - `http://localhost:3000`
-- your production domain
+- `https://thesayce.com`
+- `https://www.thesayce.com`
 
 ---
 
