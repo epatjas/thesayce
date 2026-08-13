@@ -36,9 +36,8 @@ export default function WorkExamplesBlock({
               {item.client && (
                 <p className={styles.workClient}>
                   Client
-                  <span className={styles.workSeparator} aria-hidden="true">
-                    |
-                  </span>
+                  {/* Drawn as a rule, not a "|" glyph — see blocks.module.css */}
+                  <span className={styles.workSeparator} aria-hidden="true" />
                   {item.client}
                 </p>
               )}
