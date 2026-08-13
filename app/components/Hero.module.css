@@ -2,33 +2,128 @@
   padding: 120px var(--content-padding) var(--section-padding);
 }
 
-.content {
+/*
+ * Desktop: headline and buttons stack in the left column, the intro text sits
+ * in the right column spanning both rows, and the image runs full width below.
+ *
+ * Phones reorder to headline -> image -> text -> buttons, so the portrait is
+ * visible without scrolling past a block of copy first.
+ */
+.grid {
   max-width: var(--max-width);
-  margin: 0 auto 3rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'headline subline'
+    'actions  subline'
+    'image    image';
+  column-gap: clamp(40px, 8vw, 120px);
+  align-items: start;
 }
 
 .headline {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  grid-area: headline;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 400;
   font-style: italic;
   letter-spacing: -0.02em;
-  max-width: 850px;
-  margin-bottom: 1.5rem;
+  line-height: 1.1;
 }
 
 .subline {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  grid-area: subline;
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.6;
   color: var(--color-text-secondary);
-  max-width: 780px;
+  /* Optically aligns the first line of body copy with the headline's cap height. */
+  padding-top: 0.5rem;
+}
+
+.actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9375rem;
+  line-height: 1;
+  padding: 0.85rem 1.6rem;
+  border-radius: 2rem;
+  border-bottom: none;
+  white-space: nowrap;
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.buttonPrimary {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border: 1px solid var(--color-text);
+}
+
+.buttonSecondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid rgba(26, 26, 26, 0.25);
+}
+
+.buttonSecondary:hover {
+  border-color: var(--color-text);
+  opacity: 1;
 }
 
 .imageWrapper {
-  width: 100%;
+  grid-area: image;
+  margin-top: clamp(48px, 6vw, 80px);
 }
 
 .image {
   width: 100%;
   height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 96px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'headline'
+      'image'
+      'subline'
+      'actions';
+    row-gap: 0;
+  }
+
+  .subline {
+    padding-top: 0;
+    margin-top: 1.75rem;
+    font-size: 1.0625rem;
+  }
+
+  .actions {
+    margin-top: 1.75rem;
+  }
+
+  .imageWrapper {
+    margin-top: 1.75rem;
+  }
+
+  .image {
+    /* Nearly square on phones so the portrait is not cropped to a letterbox. */
+    aspect-ratio: 1 / 1;
+  }
 }

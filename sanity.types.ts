@@ -15,6 +15,16 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: schema.json
+export type PrimaryCta = {
+  label?: string;
+  href?: string;
+};
+
+export type SecondaryCta = {
+  label?: string;
+  href?: string;
+};
+
 export type SanityImageAssetReference = {
   _ref: string;
   _type: "reference";
@@ -181,6 +191,8 @@ export type Hero = {
   _type: "hero";
   headline?: string;
   subline?: string;
+  primaryCta?: PrimaryCta;
+  secondaryCta?: SecondaryCta;
   image?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
@@ -403,6 +415,8 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
+  | PrimaryCta
+  | SecondaryCta
   | SanityImageAssetReference
   | LogoImage
   | CaseStudyBlocks
@@ -530,6 +544,8 @@ export type PAGE_QUERY_RESULT = {
         _type: "hero";
         headline?: string;
         subline?: string;
+        primaryCta?: PrimaryCta;
+        secondaryCta?: SecondaryCta;
         image: {
           asset: {
             _id: string;

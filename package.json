@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typegen": "sanity schema extract && sanity typegen generate",
+    "typegen": "sanity schema extract --force && sanity typegen generate",
     "migrate": "node scripts/migrate-to-sanity.mjs"
   },
   "engines": {

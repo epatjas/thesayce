@@ -7,11 +7,18 @@ import type { SanityImage } from '@/sanity/image';
  */
 export type BlockVariant = 'page' | 'caseStudy';
 
+export interface HeroCta {
+  label?: string | null;
+  href?: string | null;
+}
+
 export interface HeroBlockData {
   _type: 'hero';
   _key: string;
   headline?: string;
   subline?: string;
+  primaryCta?: HeroCta | null;
+  secondaryCta?: HeroCta | null;
   image?: SanityImage;
 }
 
