@@ -131,16 +131,17 @@
 .cardsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 1rem;
-  padding: clamp(1.5rem, 2.5vw, 2.25rem);
-  min-height: clamp(240px, 22vw, 320px);
+  padding: clamp(1.25rem, 1.8vw, 1.75rem);
+  min-height: clamp(220px, 20vw, 300px);
 }
 
 .cardTitle {
