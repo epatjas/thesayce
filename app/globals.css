@@ -1,8 +1,12 @@
 :root {
-  --color-bg: #f7f7f3;
+  --color-bg: #fdfcfc;
   --color-text: #1a1a1a;
   --color-text-secondary: #4a4a4a;
   --color-text-muted: #6a6a6a;
+  /* Separates near-white imagery from the near-white page. */
+  --color-border: #e3e1df;
+  /* Tinted panels: context boxes, tag pills, quote callouts. */
+  --color-surface: #f5f3f1;
   --max-width: 1200px;
   --section-padding: clamp(80px, 12vh, 160px);
   --content-padding: clamp(24px, 5vw, 80px);

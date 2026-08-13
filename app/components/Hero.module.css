@@ -80,17 +80,34 @@
   opacity: 1;
 }
 
+/*
+ * Radius, border and the blur placeholder all live on the wrapper so they clip
+ * as one shape. With the border on the <img> instead, its curve and the
+ * image's own rounded clip antialias separately and the placeholder — a plain
+ * square background — bleeds past the corner.
+ */
 .imageWrapper {
   grid-area: image;
   margin-top: clamp(48px, 6vw, 80px);
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background-position: center;
+  background-size: cover;
+}
+
+/* <picture> is inline, which would leave a descender gap under the image
+   inside the border. */
+.imageWrapper picture {
+  display: block;
 }
 
 .image {
+  display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -116,6 +133,12 @@
 
   .actions {
     margin-top: 1.75rem;
+  }
+
+  /* Tighter so both buttons still sit on one row on a 375px screen. */
+  .button {
+    padding: 0.8rem 1.15rem;
+    font-size: 0.875rem;
   }
 
   .imageWrapper {
