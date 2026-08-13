@@ -1,8 +1,10 @@
+/* Shared by the homepage, other pages and case studies, so the fixed sidebar
+   nav always has a gutter to sit in rather than overlaying the content. */
 .main {
-  margin-left: 100px;
+  margin-left: var(--sidebar-gutter);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .main {
     margin-left: 0;
   }

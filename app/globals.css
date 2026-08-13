@@ -8,6 +8,9 @@
   /* Tinted panels: context boxes, tag pills, quote callouts. */
   --color-surface: #f5f3f1;
   --max-width: 1200px;
+  /* Space reserved for the fixed sidebar nav. Must exceed its longest label;
+     below 1000px the sidebar is hidden and this collapses to 0. */
+  --sidebar-gutter: 120px;
   --section-padding: clamp(80px, 12vh, 160px);
   --content-padding: clamp(24px, 5vw, 80px);
 }

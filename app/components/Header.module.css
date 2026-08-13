@@ -60,7 +60,13 @@
   opacity: 0.7;
 }
 
-@media (max-width: 768px) {
+/*
+ * The sidebar is fixed and sits in the left gutter, so it needs the gutter to
+ * be wider than its longest label. Below ~1000px the gutter collapses — on
+ * case study pages to almost nothing — and the nav overlays the content. It is
+ * hidden there instead; the top bar still carries the CTA.
+ */
+@media (max-width: 1000px) {
   .sidebar {
     display: none;
   }

@@ -13,6 +13,7 @@ import Header from '../../components/Header';
 import CaseStudy from '../../components/CaseStudy';
 import type { Block } from '../../components/blocks/types';
 import type { SanityImage } from '@/sanity/image';
+import styles from '../../page.module.css';
 
 export async function generateStaticParams() {
   try {
@@ -68,7 +69,7 @@ export default async function CaseStudyPage({
   return (
     <>
       <Header settings={settings} />
-      <main>
+      <main className={styles.main}>
         <CaseStudy
           _id={caseStudy._id}
           title={caseStudy.title ?? undefined}
