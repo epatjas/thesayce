@@ -51,11 +51,9 @@ export default function TextSectionBlock({
           {pullquote && <p className={styles.pullquote}>{pullquote}</p>}
         </div>
 
-        {images?.length ? (
-          <div className={styles.imageWrapper}>
-            <ImageGrid images={images} variant="page" />
-          </div>
-        ) : null}
+        {/* No flex wrapper here — it would shrink the grid to its content
+            width instead of letting it fill the container. */}
+        <ImageGrid images={images} variant="page" />
       </div>
     </section>
   );

@@ -52,7 +52,6 @@ export async function generateMetadata({
       shareImage: caseStudy.heroImage as SanityImage,
     },
     settings,
-    titleSuffix: true,
   });
 }
 

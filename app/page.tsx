@@ -18,7 +18,17 @@ async function getHome() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const { page, settings } = await getHome();
-  return buildMetadata({ page, settings });
+  // `page.title` is the studio's internal label ("Homepage") — not a page
+  // title anyone should see, so it is deliberately not passed through.
+  return buildMetadata({
+    page: {
+      seoTitle: page?.seoTitle,
+      seoDescription: page?.seoDescription,
+      shareImage: page?.shareImage,
+    },
+    settings,
+    absolute: true,
+  });
 }
 
 export default async function Home() {

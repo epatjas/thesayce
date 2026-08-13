@@ -42,7 +42,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const { page, settings } = await getPage(slug);
   if (!page) return { title: 'Page not found' };
-  return buildMetadata({ page, settings, titleSuffix: true });
+  return buildMetadata({ page, settings });
 }
 
 export default async function DynamicPage({
