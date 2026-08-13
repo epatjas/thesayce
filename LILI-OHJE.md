@@ -109,7 +109,28 @@ Jos haluat sivun näkyvän valikkoon, lisää se kohdassa **Site settings** →
 
 ---
 
-## 7. Julkaiseminen
+## 7. Työversio ja julkaistu versio
+
+Jokaisesta sivusta on kaksi versiota, ja muokkausnäkymän yläreunassa on kytkin
+niiden välillä:
+
+| | |
+| --- | --- |
+| **Published** | Se, minkä sivuston kävijät näkevät juuri nyt |
+| **Draft** | Työversio, jonka näet vain sinä |
+
+**Kirjoittaminen onnistuu vain Draft-puolella.** Jos kentät eivät reagoi etkä
+saa kirjoitettua mitään, olet Published-puolella. Napsauta silloin **Draft**.
+Tämä on Sanityn tapa estää se, että julkaistu sivu muuttuisi vahingossa.
+
+Kun avaat Draftin ensimmäisen kerran, Sanity tekee työversion siitä, mikä on
+juuri nyt julkaistuna. Mitään ei siis katoa, vaikka Draft näyttäisi hetken
+tyhjältä tai vanhalta. Jos esikatselu näyttää vanhaa versiota, päivitä se
+osoiterivin vieressä olevasta nuolesta.
+
+---
+
+## 8. Julkaiseminen
 
 Muutokset tallentuvat itsestään, mutta ne eivät näy sivustolla ennen kuin
 painat oikean alakulman **Publish**-painiketta.
@@ -117,12 +138,32 @@ painat oikean alakulman **Publish**-painiketta.
 Julkaisu näkyy sivustolla muutamassa sekunnissa. Sivustoa ei tarvitse
 rakentaa uudelleen eikä kenenkään tarvitse tehdä mitään.
 
-Niin kauan kuin et ole julkaissut, muutos on työversio. Sen tunnistaa
-keltaisesta merkinnästä. Voit siis rauhassa kirjoittaa keskeneräistä tekstiä.
+---
+
+## 9. Jos sivusto näyttää oudolta
+
+Kun avaat studion, selaimesi siirtyy esikatselutilaan. Silloin näet sivustolla
+myös julkaisemattomat muutokset, ja sivu voi jäädä näyttämään vanhaa versiota.
+Se näyttää helposti siltä, kuin tekemäsi työ olisi kadonnut, vaikka kaikki on
+tallessa.
+
+Tunnistat esikatselutilan siitä, että tekstissä on näkymättömiä merkkejä: jos
+kopioit otsikon ja liität sen vaikka sähköpostiin, siinä on ylimääräisiä
+välejä.
+
+Pääset pois esikatselutilasta menemällä osoitteeseen:
+
+```
+thesayce.com/api/draft-mode/disable
+```
+
+Voit myös avata sivuston yksityisessä selainikkunassa. Silloin näet täsmälleen
+sen, minkä kävijätkin näkevät. Tämä on nopein tapa tarkistaa, onko sivustolla
+oikeasti jokin vialla vai onko kyse vain esikatselutilasta.
 
 ---
 
-## 8. Jos jokin menee pieleen
+## 10. Jos jokin menee pieleen
 
 Mitään ei voi rikkoa pysyvästi.
 
@@ -138,12 +179,16 @@ Jos jokin näyttää oudolta, älä poista mitään. Ota yhteyttä Elinaan.
 
 ## Yksi asia ratkaistavaksi
 
-Vanhoilta sivuilta löytyi kaksi osiota, **Question** ja **What I Do**, jotka
-eivät koskaan näkyneet sivustolla. Ne olivat muokattavissa vanhassa
-järjestelmässä, mutta niitä ei ollut kytketty mihinkään, joten kaikki niihin
-kirjoitettu katosi näkymättömiin.
+Vanhoilta sivuilta löytyi kaksi osiota, jotka eivät koskaan näkyneet
+sivustolla. Ne olivat muokattavissa vanhassa järjestelmässä, mutta niitä ei
+ollut kytketty mihinkään, joten kaikki niihin kirjoitettu katosi
+näkymättömiin.
 
-Tekstit löytyvät nyt kohdasta **Other pages**, sivulta **Unused sections
-(from the old site)**. Sivu on työversiona eikä näy sivustolla.
+Näistä **Question** on nyt käytössä: se on etusivun osio **When to call me**.
 
-Katso, haluatko viimeistellä tekstit ja ottaa ne käyttöön, vai poistaa ne.
+Toinen, **What I Do**, on yhä keskeneräinen. Teksti löytyy kohdasta **Other
+pages**, sivulta **Unused sections (from the old site)**. Sivu on työversiona
+eikä näy sivustolla.
+
+Katso, haluatko viimeistellä sen tekstin ja ottaa sen käyttöön, vai poistaa
+sen.
