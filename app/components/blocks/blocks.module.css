@@ -1,0 +1,138 @@
+/* Shared styling for the block renderer — additions only.
+   Each block otherwise reuses the CSS module of the component it replaces,
+   so the migrated site renders identically to the hand-coded one. */
+
+.tag {
+  display: block;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+/* Standalone pullquote block */
+.quoteSection {
+  padding: var(--section-padding) var(--content-padding);
+}
+
+.quoteContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.quote {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.2;
+  max-width: 900px;
+  margin: 0;
+}
+
+.attribution {
+  margin-top: 1.5rem;
+  font-size: clamp(0.9375rem, 1.2vw, 1rem);
+  color: var(--color-text-secondary);
+}
+
+/* Image group */
+.imageSection {
+  padding: var(--section-padding) var(--content-padding);
+}
+
+.imageContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.imageGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.imageGridOne {
+  grid-template-columns: 1fr;
+}
+
+.imageGridTwo {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.imageGridThree {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.imageWrapper {
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.imageGridOne .image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.imageGridTwo .image,
+.imageGridThree .image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.caption {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+}
+
+/* Logo strip */
+.logoSection {
+  padding: var(--section-padding) var(--content-padding);
+}
+
+.logoContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.logoHeading {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.logoGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.logo {
+  width: auto;
+  height: clamp(28px, 4vw, 40px);
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .imageGridTwo,
+  .imageGridThree {
+    grid-template-columns: 1fr;
+  }
+}
