@@ -58,19 +58,24 @@ export interface CardsBlockData {
   anchor?: string;
 }
 
+export interface WorkExampleItem {
+  _key?: string;
+  image?: SanityImage;
+  duration?: string;
+  client?: string;
+  title?: string;
+  description?: string;
+  /** Set together with `hasStory` when the example has its own page. */
+  slug?: string;
+  hasStory?: boolean | null;
+}
+
 export interface WorkExamplesBlockData {
   _type: 'workExamples';
   _key: string;
   heading?: string;
   intro?: PortableTextBlock[];
-  items?: Array<{
-    _key?: string;
-    image?: SanityImage;
-    duration?: string;
-    client?: string;
-    title?: string;
-    description?: string;
-  }>;
+  items?: WorkExampleItem[];
   anchor?: string;
 }
 

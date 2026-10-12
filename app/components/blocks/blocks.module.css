@@ -227,6 +227,27 @@
   flex-direction: column;
 }
 
+/* An example with a story: the whole card is the link. */
+.workLink {
+  display: flex;
+  border-bottom: none;
+  border-radius: 1rem;
+}
+
+.workLink:hover {
+  opacity: 1;
+}
+
+.workLink:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 6px;
+}
+
+.workLink .workItem {
+  flex: 1;
+  min-width: 0;
+}
+
 .workMedia {
   position: relative;
   border-radius: 1rem;
@@ -241,6 +262,7 @@
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 /* Sits on the photo, so it carries its own solid background rather than
@@ -301,6 +323,56 @@
   font-size: clamp(0.9375rem, 1.1vw, 1rem);
   line-height: 1.55;
   color: var(--color-text-secondary);
+}
+
+/* The card is a teaser once the story has its own page, so a blurb that runs
+   long is cut rather than left to push the cards out of step. Unlinked cards
+   are never cut: there would be nowhere to read the rest. */
+.workLink .workDescription {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+
+/* Pushed to the bottom so the cues line up across cards of unequal length. */
+.workMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+.workArrow {
+  transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+  .workLink:hover .workImage {
+    transform: scale(1.03);
+  }
+
+  .workLink:hover .workArrow {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workImage,
+  .workArrow {
+    transition: none;
+  }
+
+  .workLink:hover .workImage,
+  .workLink:hover .workArrow {
+    transform: none;
+  }
 }
 
 /* Logo strip */

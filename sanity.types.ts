@@ -178,6 +178,13 @@ export type WorkExamples = {
     client?: string;
     title?: string;
     description?: string;
+    story?: Array<{
+      heading?: string;
+      body?: RichText;
+      _type: "storySection";
+      _key: string;
+    }>;
+    slug?: Slug;
     _type: "workExample";
     _key: string;
   }>;
@@ -500,7 +507,7 @@ export type AllSanitySchemaTypes =
 
 // Source: sanity/queries.ts
 // Variable: PAGE_QUERY
-// Query: *[_type == "page" && slug.current == $slug][0]{    _id,    title,    "slug": slug.current,    seoTitle,    seoDescription,    shareImage {  ...,  asset->{ _id, metadata { lqip, dimensions } }},    blocks[]{  ...,  _type == "hero" => { image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "textSection" => { images[] {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "contactBlock" => { image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "imageGroup" => { images[] {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "logoStrip" => { logos[]{ ..., image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} } },  _type == "workExamples" => { items[]{ ..., image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} } },  _type == "caseStudyGrid" => {    "cards": select(      source == "picked" => items[]-> {  _id,  title,  "slug": slug.current,  "client": context.client,  "cardTitle": coalesce(preview.title, title),  "image": coalesce(preview.image, heroImage) {  ...,  asset->{ _id, metadata { lqip, dimensions } }}},      *[_type == "caseStudy" && defined(slug.current)] | order(orderRank asc) {  _id,  title,  "slug": slug.current,  "client": context.client,  "cardTitle": coalesce(preview.title, title),  "image": coalesce(preview.image, heroImage) {  ...,  asset->{ _id, metadata { lqip, dimensions } }}}    )  }}  }
+// Query: *[_type == "page" && slug.current == $slug][0]{    _id,    title,    "slug": slug.current,    seoTitle,    seoDescription,    shareImage {  ...,  asset->{ _id, metadata { lqip, dimensions } }},    blocks[]{  ...,  _type == "hero" => { image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "textSection" => { images[] {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "contactBlock" => { image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "imageGroup" => { images[] {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "logoStrip" => { logos[]{ ..., image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} } },  _type == "workExamples" => {    items[]{ ..., "slug": slug.current, "hasStory": count(story) > 0, image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} }  },  _type == "caseStudyGrid" => {    "cards": select(      source == "picked" => items[]-> {  _id,  title,  "slug": slug.current,  "client": context.client,  "cardTitle": coalesce(preview.title, title),  "image": coalesce(preview.image, heroImage) {  ...,  asset->{ _id, metadata { lqip, dimensions } }}},      *[_type == "caseStudy" && defined(slug.current)] | order(orderRank asc) {  _id,  title,  "slug": slug.current,  "client": context.client,  "cardTitle": coalesce(preview.title, title),  "image": coalesce(preview.image, heroImage) {  ...,  asset->{ _id, metadata { lqip, dimensions } }}}    )  }}  }
 export type PAGE_QUERY_RESULT = {
   _id: string;
   title: string | null;
@@ -728,8 +735,16 @@ export type PAGE_QUERY_RESULT = {
           client?: string;
           title?: string;
           description?: string;
+          story?: Array<{
+            heading?: string;
+            body?: RichText;
+            _type: "storySection";
+            _key: string;
+          }>;
+          slug: string | null;
           _type: "workExample";
           _key: string;
+          hasStory: boolean | null;
         }> | null;
         anchor?: string;
       }
@@ -738,7 +753,7 @@ export type PAGE_QUERY_RESULT = {
 
 // Source: sanity/queries.ts
 // Variable: CASE_STUDY_QUERY
-// Query: *[_type == "caseStudy" && slug.current == $slug][0]{    _id,    title,    "slug": slug.current,    subtitle,    heroImage {  ...,  asset->{ _id, metadata { lqip, dimensions } }},    heroLogo {  ...,  asset->{ _id, metadata { lqip, dimensions } }},    context,    blocks[]{  ...,  _type == "hero" => { image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "textSection" => { images[] {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "contactBlock" => { image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "imageGroup" => { images[] {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "logoStrip" => { logos[]{ ..., image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} } },  _type == "workExamples" => { items[]{ ..., image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} } },  _type == "caseStudyGrid" => {    "cards": select(      source == "picked" => items[]-> {  _id,  title,  "slug": slug.current,  "client": context.client,  "cardTitle": coalesce(preview.title, title),  "image": coalesce(preview.image, heroImage) {  ...,  asset->{ _id, metadata { lqip, dimensions } }}},      *[_type == "caseStudy" && defined(slug.current)] | order(orderRank asc) {  _id,  title,  "slug": slug.current,  "client": context.client,  "cardTitle": coalesce(preview.title, title),  "image": coalesce(preview.image, heroImage) {  ...,  asset->{ _id, metadata { lqip, dimensions } }}}    )  }}  }
+// Query: *[_type == "caseStudy" && slug.current == $slug][0]{    _id,    title,    "slug": slug.current,    subtitle,    heroImage {  ...,  asset->{ _id, metadata { lqip, dimensions } }},    heroLogo {  ...,  asset->{ _id, metadata { lqip, dimensions } }},    context,    blocks[]{  ...,  _type == "hero" => { image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "textSection" => { images[] {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "contactBlock" => { image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "imageGroup" => { images[] {  ...,  asset->{ _id, metadata { lqip, dimensions } }} },  _type == "logoStrip" => { logos[]{ ..., image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} } },  _type == "workExamples" => {    items[]{ ..., "slug": slug.current, "hasStory": count(story) > 0, image {  ...,  asset->{ _id, metadata { lqip, dimensions } }} }  },  _type == "caseStudyGrid" => {    "cards": select(      source == "picked" => items[]-> {  _id,  title,  "slug": slug.current,  "client": context.client,  "cardTitle": coalesce(preview.title, title),  "image": coalesce(preview.image, heroImage) {  ...,  asset->{ _id, metadata { lqip, dimensions } }}},      *[_type == "caseStudy" && defined(slug.current)] | order(orderRank asc) {  _id,  title,  "slug": slug.current,  "client": context.client,  "cardTitle": coalesce(preview.title, title),  "image": coalesce(preview.image, heroImage) {  ...,  asset->{ _id, metadata { lqip, dimensions } }}}    )  }}  }
 export type CASE_STUDY_QUERY_RESULT = {
   _id: string;
   title: string | null;
@@ -893,13 +908,143 @@ export type CASE_STUDY_QUERY_RESULT = {
           client?: string;
           title?: string;
           description?: string;
+          story?: Array<{
+            heading?: string;
+            body?: RichText;
+            _type: "storySection";
+            _key: string;
+          }>;
+          slug: string | null;
           _type: "workExample";
           _key: string;
+          hasStory: boolean | null;
         }> | null;
         anchor?: string;
       }
   > | null;
 } | null;
+
+// Source: sanity/queries.ts
+// Variable: WORK_EXAMPLE_QUERY
+// Query: *[_type in ["page", "caseStudy"] && count(blocks[_type == "workExamples" && $slug in items[count(story) > 0].slug.current]) > 0][0]{    _id,    _type,    "parentSlug": slug.current,    "block": blocks[_type == "workExamples" && $slug in items[count(story) > 0].slug.current][0]{      _key,      heading,      anchor,      "example": items[slug.current == $slug][0]{        _key,        duration,        client,        title,        description,        story,        image {  ...,  asset->{ _id, metadata { lqip, dimensions } }}      },      "others": items[slug.current != $slug && defined(slug.current) && count(story) > 0]{        _key,        duration,        client,        title,        "slug": slug.current,        image {  ...,  asset->{ _id, metadata { lqip, dimensions } }}      }    }  }
+export type WORK_EXAMPLE_QUERY_RESULT =
+  | {
+      _id: string;
+      _type: "caseStudy";
+      parentSlug: string | null;
+      block: {
+        _key: string;
+        heading: string | null;
+        anchor: string | null;
+        example: {
+          _key: string;
+          duration: string | null;
+          client: string | null;
+          title: string | null;
+          description: string | null;
+          story: Array<{
+            heading?: string;
+            body?: RichText;
+            _type: "storySection";
+            _key: string;
+          }> | null;
+          image: {
+            asset: {
+              _id: string;
+              metadata: {
+                lqip: string | null;
+                dimensions: SanityImageDimensions | null;
+              } | null;
+            } | null;
+            media?: unknown; // Unable to locate the referenced type "image.media" in schema
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          } | null;
+        } | null;
+        others: Array<{
+          _key: string;
+          duration: string | null;
+          client: string | null;
+          title: string | null;
+          slug: string | null;
+          image: {
+            asset: {
+              _id: string;
+              metadata: {
+                lqip: string | null;
+                dimensions: SanityImageDimensions | null;
+              } | null;
+            } | null;
+            media?: unknown; // Unable to locate the referenced type "image.media" in schema
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          } | null;
+        }> | null;
+      } | null;
+    }
+  | {
+      _id: string;
+      _type: "page";
+      parentSlug: string | null;
+      block: {
+        _key: string;
+        heading: string | null;
+        anchor: string | null;
+        example: {
+          _key: string;
+          duration: string | null;
+          client: string | null;
+          title: string | null;
+          description: string | null;
+          story: Array<{
+            heading?: string;
+            body?: RichText;
+            _type: "storySection";
+            _key: string;
+          }> | null;
+          image: {
+            asset: {
+              _id: string;
+              metadata: {
+                lqip: string | null;
+                dimensions: SanityImageDimensions | null;
+              } | null;
+            } | null;
+            media?: unknown; // Unable to locate the referenced type "image.media" in schema
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          } | null;
+        } | null;
+        others: Array<{
+          _key: string;
+          duration: string | null;
+          client: string | null;
+          title: string | null;
+          slug: string | null;
+          image: {
+            asset: {
+              _id: string;
+              metadata: {
+                lqip: string | null;
+                dimensions: SanityImageDimensions | null;
+              } | null;
+            } | null;
+            media?: unknown; // Unable to locate the referenced type "image.media" in schema
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          } | null;
+        }> | null;
+      } | null;
+    }
+  | null;
 
 // Source: sanity/queries.ts
 // Variable: SITE_SETTINGS_QUERY
@@ -940,14 +1085,21 @@ export type CASE_STUDY_SLUGS_QUERY_RESULT = Array<string | null>;
 // Query: *[_type == "page" && defined(slug.current) && slug.current != "home"].slug.current
 export type PAGE_SLUGS_QUERY_RESULT = Array<string | null>;
 
+// Source: sanity/queries.ts
+// Variable: WORK_EXAMPLE_SLUGS_QUERY
+// Query: *[_type in ["page", "caseStudy"]].blocks[_type == "workExamples"]    .items[defined(slug.current) && count(story) > 0].slug.current
+export type WORK_EXAMPLE_SLUGS_QUERY_RESULT = Array<string | null>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '\n  *[_type == "page" && slug.current == $slug][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    seoTitle,\n    seoDescription,\n    shareImage {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n},\n    blocks[]{\n  ...,\n  _type == "hero" => { image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "textSection" => { images[] {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "contactBlock" => { image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "imageGroup" => { images[] {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "logoStrip" => { logos[]{ ..., image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} } },\n  _type == "workExamples" => { items[]{ ..., image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} } },\n  _type == "caseStudyGrid" => {\n    "cards": select(\n      source == "picked" => items[]-> {\n  _id,\n  title,\n  "slug": slug.current,\n  "client": context.client,\n  "cardTitle": coalesce(preview.title, title),\n  "image": coalesce(preview.image, heroImage) {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n}\n},\n      *[_type == "caseStudy" && defined(slug.current)] | order(orderRank asc) {\n  _id,\n  title,\n  "slug": slug.current,\n  "client": context.client,\n  "cardTitle": coalesce(preview.title, title),\n  "image": coalesce(preview.image, heroImage) {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n}\n}\n    )\n  }\n}\n  }\n': PAGE_QUERY_RESULT;
-    '\n  *[_type == "caseStudy" && slug.current == $slug][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    subtitle,\n    heroImage {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n},\n    heroLogo {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n},\n    context,\n    blocks[]{\n  ...,\n  _type == "hero" => { image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "textSection" => { images[] {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "contactBlock" => { image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "imageGroup" => { images[] {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "logoStrip" => { logos[]{ ..., image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} } },\n  _type == "workExamples" => { items[]{ ..., image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} } },\n  _type == "caseStudyGrid" => {\n    "cards": select(\n      source == "picked" => items[]-> {\n  _id,\n  title,\n  "slug": slug.current,\n  "client": context.client,\n  "cardTitle": coalesce(preview.title, title),\n  "image": coalesce(preview.image, heroImage) {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n}\n},\n      *[_type == "caseStudy" && defined(slug.current)] | order(orderRank asc) {\n  _id,\n  title,\n  "slug": slug.current,\n  "client": context.client,\n  "cardTitle": coalesce(preview.title, title),\n  "image": coalesce(preview.image, heroImage) {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n}\n}\n    )\n  }\n}\n  }\n': CASE_STUDY_QUERY_RESULT;
+    '\n  *[_type == "page" && slug.current == $slug][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    seoTitle,\n    seoDescription,\n    shareImage {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n},\n    blocks[]{\n  ...,\n  _type == "hero" => { image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "textSection" => { images[] {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "contactBlock" => { image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "imageGroup" => { images[] {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "logoStrip" => { logos[]{ ..., image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} } },\n  _type == "workExamples" => {\n    items[]{ ..., "slug": slug.current, "hasStory": count(story) > 0, image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} }\n  },\n  _type == "caseStudyGrid" => {\n    "cards": select(\n      source == "picked" => items[]-> {\n  _id,\n  title,\n  "slug": slug.current,\n  "client": context.client,\n  "cardTitle": coalesce(preview.title, title),\n  "image": coalesce(preview.image, heroImage) {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n}\n},\n      *[_type == "caseStudy" && defined(slug.current)] | order(orderRank asc) {\n  _id,\n  title,\n  "slug": slug.current,\n  "client": context.client,\n  "cardTitle": coalesce(preview.title, title),\n  "image": coalesce(preview.image, heroImage) {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n}\n}\n    )\n  }\n}\n  }\n': PAGE_QUERY_RESULT;
+    '\n  *[_type == "caseStudy" && slug.current == $slug][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    subtitle,\n    heroImage {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n},\n    heroLogo {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n},\n    context,\n    blocks[]{\n  ...,\n  _type == "hero" => { image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "textSection" => { images[] {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "contactBlock" => { image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "imageGroup" => { images[] {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} },\n  _type == "logoStrip" => { logos[]{ ..., image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} } },\n  _type == "workExamples" => {\n    items[]{ ..., "slug": slug.current, "hasStory": count(story) > 0, image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n} }\n  },\n  _type == "caseStudyGrid" => {\n    "cards": select(\n      source == "picked" => items[]-> {\n  _id,\n  title,\n  "slug": slug.current,\n  "client": context.client,\n  "cardTitle": coalesce(preview.title, title),\n  "image": coalesce(preview.image, heroImage) {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n}\n},\n      *[_type == "caseStudy" && defined(slug.current)] | order(orderRank asc) {\n  _id,\n  title,\n  "slug": slug.current,\n  "client": context.client,\n  "cardTitle": coalesce(preview.title, title),\n  "image": coalesce(preview.image, heroImage) {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n}\n}\n    )\n  }\n}\n  }\n': CASE_STUDY_QUERY_RESULT;
+    '\n  *[_type in ["page", "caseStudy"] && count(blocks[_type == "workExamples" && $slug in items[count(story) > 0].slug.current]) > 0][0]{\n    _id,\n    _type,\n    "parentSlug": slug.current,\n    "block": blocks[_type == "workExamples" && $slug in items[count(story) > 0].slug.current][0]{\n      _key,\n      heading,\n      anchor,\n      "example": items[slug.current == $slug][0]{\n        _key,\n        duration,\n        client,\n        title,\n        description,\n        story,\n        image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n}\n      },\n      "others": items[slug.current != $slug && defined(slug.current) && count(story) > 0]{\n        _key,\n        duration,\n        client,\n        title,\n        "slug": slug.current,\n        image {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n}\n      }\n    }\n  }\n': WORK_EXAMPLE_QUERY_RESULT;
     '\n  *[_type == "siteSettings"][0]{\n    name,\n    nav[]{ label, href },\n    cta { label, href },\n    seoDescription,\n    shareImage {\n  ...,\n  asset->{ _id, metadata { lqip, dimensions } }\n}\n  }\n': SITE_SETTINGS_QUERY_RESULT;
     '\n  *[_type == "caseStudy" && defined(slug.current)].slug.current\n': CASE_STUDY_SLUGS_QUERY_RESULT;
     '\n  *[_type == "page" && defined(slug.current) && slug.current != "home"].slug.current\n': PAGE_SLUGS_QUERY_RESULT;
+    '\n  *[_type in ["page", "caseStudy"]].blocks[_type == "workExamples"]\n    .items[defined(slug.current) && count(story) > 0].slug.current\n': WORK_EXAMPLE_SLUGS_QUERY_RESULT;
   }
 }

@@ -95,7 +95,37 @@ tyhjäksi.
 
 ---
 
-## 6. Uusi sivu
+## 6. Esimerkit ja niiden omat sivut
+
+Etusivun osio **What this looks like in practise** on tyypiltään **Work
+examples**. Jokaisella esimerkillä on kortti: kuva, kesto, asiakas, otsikko ja
+lyhyt kuvaus.
+
+Korttiin mahtuu vain pari virkettä. Pidempi kertomus kirjoitetaan kohtaan
+**Full story**. Silloin esimerkki saa oman sivun, ja kortista tulee linkki
+sille.
+
+| Kenttä | Mihin |
+| --- | --- |
+| **Short description** | Yksi tai kaksi virkettä korttiin. Näkyy myös esimerkin omalla sivulla otsikon alla |
+| **Full story** | Koko kertomus, joka näkyy esimerkin omalla sivulla |
+| **Web address** | Sivun osoite. Kenttä tulee näkyviin, kun Full story -kohdassa on tekstiä |
+
+Näin lisäät kertomuksen:
+
+1. Avaa esimerkki ja vieritä kohtaan **Full story**.
+2. Napsauta **Add item**. Kirjoita kohtaan **Heading** väliotsikko,
+   esimerkiksi ”The question”, ja kohtaan **Text** sen alle kuuluva teksti.
+3. Lisää muut osat samalla tavalla, esimerkiksi ”What I did”, ”What came out”
+   ja ”The insight”.
+4. Napsauta **Generate** kohdassa **Web address**.
+
+Jos **Full story** on tyhjä, kortti näkyy etusivulla tavallisena korttina
+ilman linkkiä.
+
+---
+
+## 7. Uusi sivu
 
 1. Valitse **Other pages** ja napsauta **+**.
 2. Kirjoita otsikko kohtaan **Page title**.
@@ -109,7 +139,7 @@ Jos haluat sivun näkyvän valikkoon, lisää se kohdassa **Site settings** →
 
 ---
 
-## 7. Työversio ja julkaistu versio
+## 8. Työversio ja julkaistu versio
 
 Jokaisesta sivusta on kaksi versiota, ja muokkausnäkymän yläreunassa on kytkin
 niiden välillä:
@@ -130,7 +160,7 @@ osoiterivin vieressä olevasta nuolesta.
 
 ---
 
-## 8. Julkaiseminen
+## 9. Julkaiseminen
 
 Muutokset tallentuvat itsestään, mutta ne eivät näy sivustolla ennen kuin
 painat oikean alakulman **Publish**-painiketta.
@@ -140,7 +170,7 @@ rakentaa uudelleen eikä kenenkään tarvitse tehdä mitään.
 
 ---
 
-## 9. Jos sivusto näyttää oudolta
+## 10. Jos sivusto näyttää oudolta
 
 Kun avaat studion, selaimesi siirtyy esikatselutilaan. Silloin näet sivustolla
 myös julkaisemattomat muutokset, ja sivu voi jäädä näyttämään vanhaa versiota.
@@ -163,7 +193,7 @@ oikeasti jokin vialla vai onko kyse vain esikatselutilasta.
 
 ---
 
-## 10. Jos jokin menee pieleen
+## 11. Jos jokin menee pieleen
 
 Mitään ei voi rikkoa pysyvästi.
 

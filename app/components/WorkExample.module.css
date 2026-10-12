@@ -1,0 +1,235 @@
+.page {
+  min-height: 100vh;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem var(--content-padding) var(--section-padding);
+}
+
+/* Title on the left, photo on the right. The photos are close to square, so
+   a full-width banner would throw most of each one away. */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: end;
+  margin-bottom: clamp(3rem, 7vw, 5.5rem);
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  border-bottom: none;
+  margin-bottom: clamp(2.5rem, 7vw, 5rem);
+}
+
+.client {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+/* Same drawn rule as the cards on the homepage — see blocks.module.css. */
+.separator {
+  display: inline-block;
+  width: 1px;
+  height: 0.8em;
+  background-color: currentColor;
+  opacity: 0.35;
+  margin: 0 0.7em;
+  vertical-align: -0.08em;
+}
+
+.title {
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  font-style: italic;
+  line-height: 1.12;
+  margin-bottom: 1.5rem;
+}
+
+.lead {
+  max-width: 34rem;
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge {
+  border: 1px solid var(--color-border-strong);
+  border-radius: 2rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.media {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Each part: its heading in a narrow left column, the text on the right, as
+   in the case studies. The rules make the parts easy to pick out at a glance. */
+.part {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.partHeading {
+  font-size: clamp(1.375rem, 2.4vw, 1.75rem);
+  font-style: italic;
+}
+
+.partBody {
+  max-width: 640px;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.75;
+}
+
+.partBody > * + * {
+  margin-top: 1.25rem;
+}
+
+.partBody ul,
+.partBody ol {
+  padding-left: 1.5rem;
+}
+
+.partBody li + li {
+  margin-top: 0.5rem;
+}
+
+.partBody h3 {
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+.more {
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.moreHeading {
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.moreList {
+  list-style: none;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.moreLink {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-bottom: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.moreLink:hover {
+  opacity: 1;
+}
+
+.moreImage {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+}
+
+.moreText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.moreMeta {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.moreTitle {
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  line-height: 1.35;
+}
+
+.moreArrow {
+  margin-left: auto;
+  padding-left: 1rem;
+  transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+  .moreLink:hover .moreArrow {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moreArrow {
+    transition: none;
+  }
+
+  .moreLink:hover .moreArrow {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .backLink {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* The fixed top bar overlays the page here, so the back link has to start
+     below the logo rather than under it. */
+  .page {
+    padding-top: 5rem;
+  }
+
+  .part {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}

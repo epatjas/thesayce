@@ -21,7 +21,9 @@ const BLOCKS = /* groq */ `blocks[]{
   _type == "contactBlock" => { image ${IMAGE} },
   _type == "imageGroup" => { images[] ${IMAGE} },
   _type == "logoStrip" => { logos[]{ ..., image ${IMAGE} } },
-  _type == "workExamples" => { items[]{ ..., image ${IMAGE} } },
+  _type == "workExamples" => {
+    items[]{ ..., "slug": slug.current, "hasStory": count(story) > 0, image ${IMAGE} }
+  },
   _type == "caseStudyGrid" => {
     "cards": select(
       source == "picked" => items[]-> ${CARD},
@@ -55,6 +57,43 @@ export const CASE_STUDY_QUERY = defineQuery(`
   }
 `);
 
+/**
+ * Work examples are items inside a block, not documents, so the story page
+ * finds its example by looking through every page and case study for the slug.
+ * The enclosing block comes along for the back link and the other stories.
+ */
+const HAS_EXAMPLE = /* groq */ `$slug in items[count(story) > 0].slug.current`;
+
+export const WORK_EXAMPLE_QUERY = defineQuery(`
+  *[_type in ["page", "caseStudy"] && count(blocks[_type == "workExamples" && ${HAS_EXAMPLE}]) > 0][0]{
+    _id,
+    _type,
+    "parentSlug": slug.current,
+    "block": blocks[_type == "workExamples" && ${HAS_EXAMPLE}][0]{
+      _key,
+      heading,
+      anchor,
+      "example": items[slug.current == $slug][0]{
+        _key,
+        duration,
+        client,
+        title,
+        description,
+        story,
+        image ${IMAGE}
+      },
+      "others": items[slug.current != $slug && defined(slug.current) && count(story) > 0]{
+        _key,
+        duration,
+        client,
+        title,
+        "slug": slug.current,
+        image ${IMAGE}
+      }
+    }
+  }
+`);
+
 export const SITE_SETTINGS_QUERY = defineQuery(`
   *[_type == "siteSettings"][0]{
     name,
@@ -72,4 +111,9 @@ export const CASE_STUDY_SLUGS_QUERY = defineQuery(`
 
 export const PAGE_SLUGS_QUERY = defineQuery(`
   *[_type == "page" && defined(slug.current) && slug.current != "home"].slug.current
+`);
+
+export const WORK_EXAMPLE_SLUGS_QUERY = defineQuery(`
+  *[_type in ["page", "caseStudy"]].blocks[_type == "workExamples"]
+    .items[defined(slug.current) && count(story) > 0].slug.current
 `);

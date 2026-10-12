@@ -34,6 +34,12 @@ export default defineConfig({
             route: '/case-studies/:slug',
             filter: '_type == "caseStudy" && slug.current == $slug',
           },
+          {
+            // A work example's story lives inside the page that lists it.
+            route: '/work/:slug',
+            filter:
+              '_type in ["page", "caseStudy"] && $slug in blocks[_type == "workExamples"].items[].slug.current',
+          },
         ],
       },
     }),
